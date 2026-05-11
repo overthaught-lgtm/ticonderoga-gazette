@@ -19,6 +19,9 @@ jobs:
           port: 22
           username: ${{ secrets.IONOS_FTP_USERNAME }}
           password: ${{ secrets.IONOS_FTP_PASSWORD }}
-          local_path: ./index.html
-          remote_path: /gazette/httpdocs/
+          # Use './*' to ensure index.html and any assets/CSS/images are moved
+          local_path: './*'
+          # Ensure the leading slash and trailing slash are present
+          remote_path: '/gazette/httpdocs/'
           sftp_only: true
+          delete_remote_files: false
