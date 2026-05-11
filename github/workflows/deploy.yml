@@ -25,3 +25,4 @@ jobs:
           remote_path: '/gazette/httpdocs/'
           sftp_only: true
           delete_remote_files: false
+
