@@ -20,5 +20,5 @@ jobs:
           username: ${{ secrets.IONOS_FTP_USERNAME }}
           password: ${{ secrets.IONOS_FTP_PASSWORD }}
           local_path: ./index.html
-          remote_path: /Gazette/httpdocs/
+          remote_path: /httpdocs/Gazette/
           sftp_only: true
