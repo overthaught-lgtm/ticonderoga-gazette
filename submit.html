@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Submit to The Craig Gazette — Story Intake</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #2a1505;  /* dark warm background, like old wood */
+      font-family: 'Times New Roman', Times, serif;
+      padding: 2rem 1rem;
+    }
+
+    /* MAIN CARD */
+    .submit-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--paper, #f5f0e8);
+      border: 1px solid var(--rule, #c8b89a);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+    }
+
+    /* GAZETTE HEADER (compact) */
+    .gazette-header {
+      background: var(--ink, #1a1008);
+      color: var(--paper, #f5f0e8);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold, #C9A94A);
+    }
+    .gazette-header h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    .gazette-header p {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-top: 6px;
+      opacity: 0.8;
+    }
+
+    /* FORM BODY */
+    .form-body {
+      padding: 1.8rem 2rem 2rem;
+    }
+
+    .field-group {
+      margin-bottom: 1.4rem;
+    }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink, #1a1008);
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: var(--paper-dark, #ede8dc);
+      border: 1px solid var(--rule, #c8b89a);
+      padding: 10px 12px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+      color: var(--ink, #1a1008);
+      transition: 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold, #C9A94A);
+      background: #fff8f0;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* CHECKLIST GRID */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      background: var(--paper-dark, #ede8dc);
+      padding: 12px 15px;
+      border: 1px solid var(--rule, #c8b89a);
+      margin-top: 6px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+    .check-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold, #C9A94A);
+      margin: 0;
+    }
+    .check-item label {
+      margin: 0;
+      letter-spacing: normal;
+      text-transform: none;
+      font-weight: normal;
+    }
+
+    /* UPLOAD AREA */
+    .file-hint {
+      font-size: 0.7rem;
+      color: #5a4a28;
+      margin-top: 4px;
+    }
+
+    /* SUBMIT ROW */
+    .submit-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--rule, #c8b89a);
+      padding-top: 1.5rem;
+    }
+    .id-badge {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: var(--ink, #1a1008);
+      color: var(--gold, #C9A94A);
+      padding: 5px 10px;
+      letter-spacing: 1px;
+    }
+    button {
+      background: var(--ink, #1a1008);
+      color: var(--paper, #f5f0e8);
+      border: none;
+      padding: 10px 24px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: var(--gold, #C9A94A);
+      color: var(--ink, #1a1008);
+    }
+
+    .success-message {
+      background: #1e3a2f;
+      color: #e6f7ec;
+      padding: 1.2rem;
+      text-align: center;
+      margin-top: 1rem;
+      border-left: 4px solid var(--gold, #C9A94A);
+      display: none;
+    }
+    .footnote {
+      margin-top: 1.2rem;
+      font-size: 0.7rem;
+      text-align: center;
+      color: #5a4a28;
+      border-top: 1px solid var(--rule, #c8b89a);
+      padding-top: 1rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule, #c8b89a);
+      margin: 1rem 0;
+    }
+    @media (max-width: 600px) {
+      .form-body { padding: 1.2rem; }
+      .checklist-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="submit-container">
+  <div class="gazette-header">
+    <h1>THE CRAIG GAZETTE</h1>
+    <p>SUBMISSION DESK · THE RECORD STANDS</p>
+  </div>
+
+  <div class="form-body">
+    <form id="tipForm">
+      <!-- STORY TYPE CHECKLIST (everything we're tracking) -->
+      <div class="field-group">
+        <label>◉ WHAT DOES YOUR STORY INVOLVE? (check all that apply)</label>
+        <div class="checklist-grid">
+          <div class="check-item"><input type="checkbox" value="dog_k9_encounter"> <label>🐕 Dog / K9 encounter</label></div>
+          <div class="check-item"><input type="checkbox" value="police_dog_bite"> <label>Police dog bite / attack</label></div>
+          <div class="check-item"><input type="checkbox" value="dog_killed_by_police"> <label>Dog killed by police</label></div>
+          <div class="check-item"><input type="checkbox" value="animal_killed_bear_creek"> <label>Animal killed at Bear Creek</label></div>
+          <div class="check-item"><input type="checkbox" value="microchip_not_scanned"> <label>Microchip not scanned / ignored</label></div>
+          <div class="check-item"><input type="checkbox" value="dangerous_dog_registry"> <label>Dangerous Dog Registry failure</label></div>
+          <div class="check-item"><input type="checkbox" value="excited_delirium_used"> <label>"Excited/agitated delirium" used in report</label></div>
+          <div class="check-item"><input type="checkbox" value="k9_death_moffat"> <label>K9 death (Moffat / Craig PD)</label></div>
+          <div class="check-item"><input type="checkbox" value="police_misconduct_k9"> <label>Police misconduct / K9 handler</label></div>
+          <div class="check-item"><input type="checkbox" value="cora_response"> <label>CORA request denied / ignored</label></div>
+          <div class="check-item"><input type="checkbox" value="sog_special_ops"> <label>SOG / Special Operations Group</label></div>
+          <div class="check-item"><input type="checkbox" value="water_rights_abuse"> <label>Water rights / headwaters contract</label></div>
+          <div class="check-item"><input type="checkbox" value="other_craig_story"> <label>Other — Craig / Moffat County story</label></div>
+        </div>
+      </div>
+
+      <!-- BASIC INFO -->
+      <div class="field-group">
+        <label>YOUR NAME (optional — anonymous protected)</label>
+        <input type="text" id="tipsterName" placeholder="Anonymous or name — we never share without consent">
+      </div>
+
+      <div class="field-group">
+        <label>CONTACT (optional — only for follow-up)</label>
+        <input type="text" id="tipsterContact" placeholder="Email, Signal, phone — protected">
+      </div>
+
+      <div class="field-group">
+        <label>SUBJECT / HEADLINE (one line)</label>
+        <input type="text" id="storySubject" placeholder="e.g., K9 bite on 12th Street, microchip ignored, dog killed at shelter">
+      </div>
+
+      <div class="field-group">
+        <label>YOUR STORY (be specific — names, dates, locations, agencies)</label>
+        <textarea id="storyBody" placeholder="What happened? When? Where? Who was involved? Any witnesses? Any reports or case numbers?"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>SUPPORTING DOCUMENTS (optional — photo, screenshot, PDF)</label>
+        <input type="file" id="storyFile" accept=".jpg,.png,.pdf,.txt">
+        <div class="file-hint">We accept images, PDFs, text files. Max 10MB.</div>
+      </div>
+
+      <!-- SUBMISSION ID ROW -->
+      <div class="submit-row">
+        <div class="id-badge" id="submissionIdDisplay">ID: —</div>
+        <button type="button" id="submitBtn">SUBMIT TO THE RECORD →</button>
+      </div>
+    </form>
+
+    <div id="successMsg" class="success-message">
+      <strong>✓ RECEIVED.</strong><br>
+      Your submission has entered the Gazette audit pipeline.<br>
+      We will review within 48 hours. The record stands.<br>
+      <span id="savedIdSpan" style="font-family:monospace; margin-top:8px; display:inline-block;"></span>
+    </div>
+
+    <div class="footnote">
+      Δ TICONDEROGA SYSTEMS HOLDINGS · Anonymous tips protected · All submissions ledger-sealed on publish<br>
+      Questions? gazette@ticonderogasystems.xyz
+    </div>
+  </div>
+</div>
+
+<script>
+  // generate a unique submission ID (simple hash of timestamp + random)
+  function generateSubmissionId() {
+    const now = Date.now();
+    const rand = Math.floor(Math.random() * 10000);
+    const raw = `${now}-${rand}`;
+    let hash = 0;
+    for (let i = 0; i < raw.length; i++) {
+      hash = ((hash << 5) - hash) + raw.charCodeAt(i);
+      hash |= 0;
+    }
+    const positiveHash = Math.abs(hash).toString(16).slice(0, 10);
+    const octPart = (now % 777).toString(8).padStart(3, '0');
+    return `GAZ-${octPart}-${positiveHash}`;
+  }
+
+  // capture checked categories as a readable list
+  function getSelectedCategories() {
+    const checks = document.querySelectorAll('#tipForm input[type="checkbox"]:checked');
+    const labels = [];
+    checks.forEach(cb => {
+      const parent = cb.closest('.check-item');
+      if (parent) {
+        const lbl = parent.querySelector('label')?.innerText || cb.value;
+        labels.push(lbl.trim());
+      } else {
+        labels.push(cb.value);
+      }
+    });
+    return labels;
+  }
+
+  // handle file as base64 (for demo / local storage / send later)
+  function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1] || '');
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.getElementById('submissionIdDisplay').innerText = `ID: ${generateSubmissionId()}`;
+
+  document.getElementById('submitBtn').addEventListener('click', async () => {
+    const subId = generateSubmissionId();
+    const tipsterName = document.getElementById('tipsterName').value.trim() || 'Anonymous';
+    const tipsterContact = document.getElementById('tipsterContact').value.trim() || '';
+    const storySubject = document.getElementById('storySubject').value.trim() || '(no subject)';
+    const storyBody = document.getElementById('storyBody').value.trim();
+    const categories = getSelectedCategories();
+    let fileB64 = '';
+    let fileName = '';
+
+    const fileInput = document.getElementById('storyFile');
+    if (fileInput.files && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      fileName = file.name;
+      try {
+        fileB64 = await readFileAsBase64(file);
+      } catch(e) { console.warn('file read error', e); }
+    }
+
+    const submission = {
+      id: subId,
+      timestamp: new Date().toISOString(),
+      tipsterName,
+      tipsterContact,
+      subject: storySubject,
+      body: storyBody,
+      categories,
+      attachment: fileB64 ? { name: fileName, data: fileB64 } : null,
+      status: 'pending_audit'
+    };
+
+    // store in localStorage for now (Gazette editor can review)
+    const existing = JSON.parse(localStorage.getItem('gazette_submissions') || '[]');
+    existing.push(submission);
+    localStorage.setItem('gazette_submissions', JSON.stringify(existing));
+
+    // show success + submission ID
+    document.getElementById('savedIdSpan').innerHTML = `Your submission ID: <strong>${subId}</strong> (save this for follow‑up)`;
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('tipForm').reset();
+    document.getElementById('submissionIdDisplay').innerText = `ID: ${generateSubmissionId()}`;
+
+    // log to console for debug (Gazette operator)
+    console.log('[GAZETTE] Submission saved:', { id: subId, categories, subject: storySubject });
+  });
+</script>
+</body>
+</html>
