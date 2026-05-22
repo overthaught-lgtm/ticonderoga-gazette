@@ -1,75 +1,72 @@
-  // ==========================================
-  // 1. Tab and Sub-Portal Switching Engine
-  // ==========================================
-  function switchTab(id, btn) {
-    // Clear active classes from ALL navigational buttons and layout panels
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
-    
-    // Cross-link evaluation: resolve target if clicked via a header shortcut link
-    let targetBtn = btn;
-    if (btn && btn.id !== 'tab-' + id) {
-      const match = document.getElementById('tab-' + id);
-      if (match) targetBtn = match;
-    }
-    
-    // Apply visual active feedback highlighting rule
-    if (targetBtn) targetBtn.classList.add('on');
-    
-    // Smoothly push layout context panel into active view
-    const panel = document.getElementById('panel-' + id);
-    if (panel) panel.classList.add('on');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // ==========================================
-  // 2. Portal & Modal Interface Controllers
-  // ==========================================
-  function toggleLogin(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      // Evaluate actual computed layout properties to bypass initial blank string tracking
-      const currentDisplay = el.style.display || window.getComputedStyle(el).display;
-      el.style.display = currentDisplay === 'none' ? 'grid' : 'none';
-    }
-  }
-
-  function openModal() { document.getElementById('modal').classList.add('open'); }
-  function closeModal() { document.getElementById('modal').classList.remove('open'); }
+/* ==========================================
+   1. Tab and Sub-Portal Switching Engine
+   ========================================== */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
   
-  // Close modal via Escape key safely
-  document.addEventListener('keydown', e => { 
-    if (e.key === 'Escape') closeModal(); 
+  let targetBtn = btn;
+  if (btn && btn.id !== 'tab-' + id) {
+    const match = document.getElementById('tab-' + id);
+    if (match) targetBtn = match;
+  }
+  
+  if (targetBtn) targetBtn.classList.add('on');
+  
+  const panel = document.getElementById('panel-' + id);
+  if (panel) panel.classList.add('on');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ==========================================
+   2. Portal & Modal Interface Controllers
+   ========================================== */
+function toggleLogin(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const currentDisplay = el.style.display || window.getComputedStyle(el).display;
+    el.style.display = currentDisplay === 'none' ? 'grid' : 'none';
+  }
+}
+
+function openModal() { document.getElementById('modal').classList.add('open'); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape') closeModal(); 
+});
+
+/* ==========================================
+   3. Custom Tracking Cursor Implementation
+   ========================================== */
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+
+if (cur && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
   });
 
-  // ==========================================
-  // 3. Custom Tracking Cursor Implementation
-  // ==========================================
-  const cur = document.getElementById('cur');
-  const ring = document.getElementById('cur-ring');
-  
-  // Only execute cursor tracking if user is on a fine-pointer device (mouse)
-  if (cur && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
+  document.querySelectorAll('button, a, .card, .planet').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      ring.style.transform = 'translate(-50%, -50%) scale(1.5)';
     });
-
-    // Add visual interactive feedback scale-up when hovering clickable elements
-    document.querySelectorAll('button, a, .card, .planet').forEach(item => {
-      item.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%, -50%) scale(1.5)');
-      item.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%, -50%) scale(1.0)');
+    item.addEventListener('mouseleave', () => {
+      ring.style.transform = 'translate(-50%, -50%) scale(1.0)';
     });
-  }
+  });
+}
 
-  // ==========================================
-  // 4. Canvas Vector Particle Engine Setup
-  // ==========================================
-  const canvas = document.getElementById('bg');
+/* ==========================================
+   4. Canvas Vector Particle Engine Setup
+   ========================================== */
+const canvas = document.getElementById('bg');
+if (canvas) {
   const ctx = canvas.getContext('2d');
-  let animationFrameId; // Track frame cycles to prevent processing leaks
+  let animationFrameId;
   
   function resizeCanvas() { 
     canvas.width = window.innerWidth; 
@@ -82,7 +79,6 @@
   const colors = [[212,79,239], [232,48,79], [0,220,180], [0,170,255]];
   let particles = [];
   
-  // Initialize particles with locked identities to prevent screen strobe bugs
   for (let i = 0; i < 60; i++) {
     particles.push({ 
       x: Math.random() * canvas.width, 
@@ -90,20 +86,17 @@
       spd: 0.3 + Math.random() * 0.6, 
       col: colors[Math.floor(Math.random() * colors.length)], 
       size: 8 + Math.random() * 6,
-      char: chars[Math.floor(Math.random() * chars.length)] // Permanent symbol assignment
+      char: chars[Math.floor(Math.random() * chars.length)]
     });
   }
 
-  // Unified Frame Animation Loop
   function drawBG() {
-    ctx.fillStyle = 'rgba(2,0,10,0.08)'; // Tail trailing fade value
+    ctx.fillStyle = 'rgba(2,0,10,0.08)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     for (let p of particles) {
       ctx.fillStyle = `rgba(${p.col[0]}, ${p.col[1]}, ${p.col[2]}, 0.5)`;
       ctx.font = `${p.size}px 'JetBrains Mono', monospace`;
-      
-      // Render the locked character properties cleanly
       ctx.fillText(p.char, p.x, p.y);
       
       p.y += p.spd;
@@ -115,57 +108,55 @@
     animationFrameId = requestAnimationFrame(drawBG);
   }
   drawBG();
+}
 
-  // ==========================================
-  // 5. Form Capture & Event Submissions (NEW)
-  // ==========================================
-  document.addEventListener('DOMContentLoaded', () => {
-    // Intercept Contact Modal Submission
-    const contactBtn = document.querySelector('.btn-send');
-    if (contactBtn) {
-      contactBtn.addEventListener('click', (e) => {
+/* ==========================================
+   5. Form Capture & Event Submissions
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const contactBtn = document.querySelector('.btn-send');
+  if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const inputs = document.querySelectorAll('.modal .field input, .modal .field textarea, .modal .field select');
+      let formData = {};
+      inputs.forEach((input, index) => {
+        const label = input.previousElementSibling ? input.previousElementSibling.textContent : `field_${index}`;
+        formData[label] = input.value;
+      });
+      
+      console.log('TSH Contact Intake Target Linked:', formData);
+      contactBtn.textContent = 'TRANSMITTED';
+      contactBtn.style.background = '#00dcb4';
+      
+      setTimeout(() => {
+        closeModal();
+        contactBtn.textContent = 'Send Message';
+        contactBtn.style.background = '#d44fef';
+        inputs.forEach(i => i.value = '');
+      }, 1200);
+    });
+  }
+
+  document.querySelectorAll('.login-box').forEach(box => {
+    const loginSubmitBtn = box.querySelector('.btn-login');
+    if (loginSubmitBtn) {
+      loginSubmitBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // Capture inputs dynamically within the parent wrapper container
-        const inputs = document.querySelectorAll('.modal .field input, .modal .field textarea, .modal .field select');
-        let formData = {};
-        inputs.forEach((input, index) => {
-          const label = input.previousElementSibling ? input.previousElementSibling.textContent : `field_${index}`;
-          formData[label] = input.value;
-        });
-        
-        console.log('TSH Contact Intake Target Linked:', formData);
-        contactBtn.textContent = 'TRANSMITTED';
-        contactBtn.style.background = '#00dcb4';
-        
-        setTimeout(() => {
-          closeModal();
-          contactBtn.textContent = 'Send Message';
-          contactBtn.style.background = '#d44fef';
-          inputs.forEach(i => i.value = ''); // Wipe values safely
-        }, 1200);
+        const credentials = box.querySelectorAll('input');
+        if (credentials.length > 0 && credentials[0].value) {
+          loginSubmitBtn.textContent = 'CONNECTING...';
+          loginSubmitBtn.style.background = '#e8304f';
+          loginSubmitBtn.style.color = '#ede8f8';
+          
+          setTimeout(() => {
+            alert(`Terminal Handshake Error: Direct pipeline auth for "${credentials[0].value}" requires TEAKWOOD physical transit keyfobs.`);
+            loginSubmitBtn.textContent = 'Sign In';
+            loginSubmitBtn.style.background = '#00dcb4';
+            loginSubmitBtn.style.color = '#02000a';
+          }, 1000);
+        }
       });
     }
-
-    // Intercept Global Login Access Portals
-    document.querySelectorAll('.login-box').forEach(box => {
-      const loginSubmitBtn = box.querySelector('.btn-login');
-      if (loginSubmitBtn) {
-        loginSubmitBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const credentials = box.querySelectorAll('input');
-          if(credentials.length > 0 && credentials[0].value) {
-            loginSubmitBtn.textContent = 'CONNECTING...';
-            loginSubmitBtn.style.background = '#e8304f';
-            loginSubmitBtn.style.color = '#ede8f8';
-            
-            setTimeout(() => {
-              alert(`Terminal Handshake Error: Direct pipeline auth for "${credentials[0].value}" requires TEAKWOOD physical transit key keyfobs.`);
-              loginSubmitBtn.textContent = 'Sign In';
-              loginSubmitBtn.style.background = '#00dcb4';
-              loginSubmitBtn.style.color = '#02000a';
-            }, 1000);
-          }
-        });
-      }
-    });
   });
+});
