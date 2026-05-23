@@ -1,659 +1,759 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ticonderoga Systems · Craig, Colorado</title>
-  
-  <meta name="description" content="Ticonderoga Systems builds behavioral analytics, commerce infrastructure, and community media for rural markets. Based in Craig, Colorado.">
-  <meta name="keywords" content="behavioral analytics, rural intelligence, commerce infrastructure, franchise deployment, Craig Colorado, Moffat County, DAP Engine, BEANS Platform">
-  <meta name="author" content="Ticonderoga Systems Holdings LLC">
-  <meta name="robots" content="index, follow">
-  <meta name="geo.region" content="US-CO">
-  <meta name="geo.placename" content="Craig">
-  <meta name="geo.position" content="40.5186; -107.5464">
-  
-  <meta property="og:title" content="Ticonderoga Systems · Rural Intelligence">
-  <meta property="og:description" content="Behavioral analytics, commerce infrastructure, and community media for markets the platforms forgot.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Ticonderoga Systems">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ticonderoga Systems · Craig, CO">
-  <meta name="twitter:description" content="Where the high desert thinks. Rural intelligence for markets the platforms forgot.">
-  
-  <link rel="canonical" href="https://ticonderoga.online">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      background: #02000a;
-      color: #ede8f8;
-      font-family: 'EB Garamond', serif;
-      font-size: 17px;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+<!-- ── PRIMARY META ── -->
+<title>The Craig Gazette — Vol. I, No. 001 | Moffat County, Colorado</title>
+<meta name="description" content="The Craig Gazette — a weekly record of regional infrastructure, resource sovereignty, and public accountability in Moffat County, Colorado. Published by Ticonderoga Systems Holdings.">
+<meta name="keywords" content="Craig Colorado news, Moffat County, Yampa Valley, Craig Station, water rights, regional infrastructure, community journalism, Ticonderoga Systems">
+<meta name="author" content="Ticonderoga Systems Holdings">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a1008">
+<link rel="canonical" href="https://ticonderogasystems.xyz">
 
-    /* Custom cursor */
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      #cur, #cur-ring { position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
-      #cur { width: 6px; height: 6px; background: #d44fef; border-radius: 50%; box-shadow: 0 0 10px #d44fef; }
-      #cur-ring { width: 26px; height: 26px; border: 1px solid rgba(212,79,239,0.4); border-radius: 50%; transition: left 0.12s, top 0.12s; }
-    }
-    @media (hover: none) { #cur, #cur-ring { display: none; } }
+<!-- ── GEO ── -->
+<meta name="geo.region" content="US-CO">
+<meta name="geo.placename" content="Craig, Colorado">
+<meta name="geo.position" content="40.5153;-107.5464">
+<meta name="ICBM" content="40.5153, -107.5464">
 
-    /* Canvas Background */
-    #bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-    .noise { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03; background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E'); }
+<!-- ── OPEN GRAPH (Facebook, LinkedIn, iMessage, Slack) ── -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Craig Gazette">
+<meta property="og:title" content="The Craig Gazette — Forget It, Jake. It's Craig.">
+<meta property="og:description" content="A weekly technical record of regional infrastructure and resource sovereignty in the Yampa Valley. Blockchain-anchored. Immutable. Free.">
+<meta property="og:url" content="https://ticonderogasystems.xyz">
+<meta property="og:image" content="https://ticonderogasystems.xyz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Craig Gazette — Vol. I, No. 001">
+<meta property="og:locale" content="en_US">
 
-    /* Header */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 60px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 32px; background: rgba(2,0,10,0.92); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212,79,239,0.12);
-    }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
-    .flower-icon { width: 36px; height: 36px; animation: spin 12s linear infinite; filter: drop-shadow(0 0 6px #d44fef); }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-    .logo-text { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; line-height: 1.3; }
-    .logo-loc { font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.18em; color: #3a1a55; display: block; }
-    .btn { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 18px; border: none; background: none; cursor: pointer; transition: 0.2s; }
-    .btn-portal { border: 1px solid rgba(0,220,180,0.5); color: #00dcb4; }
-    .btn-portal:hover { background: #00dcb4; color: #02000a; box-shadow: 0 0 18px rgba(0,220,180,0.4); }
-    .btn-touch { border: 1px solid rgba(212,79,239,0.45); color: #d44fef; }
-    .btn-touch:hover { background: #d44fef; color: #02000a; box-shadow: 0 0 18px rgba(212,79,239,0.35); }
+<!-- ── TWITTER / X ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Craig Gazette — Forget It, Jake. It's Craig.">
+<meta name="twitter:description" content="A weekly technical record of regional infrastructure and resource sovereignty in the Yampa Valley. Blockchain-anchored. Immutable. Free.">
+<meta name="twitter:image" content="https://ticonderogasystems.xyz/og-image.jpg">
+<meta name="twitter:image:alt" content="The Craig Gazette — Vol. I, No. 001">
 
-    /* Tabs */
-    .tabs {
-      position: sticky; top: 60px; z-index: 90;
-      background: rgba(2,0,10,0.96); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212,79,239,0.08);
-      display: flex; overflow-x: auto; padding: 0 32px; gap: 4px;
-    }
-    .tabs::-webkit-scrollbar { display: none; }
-    .tab {
-      font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
-      text-transform: uppercase; color: #2a1a3a; padding: 14px 16px;
-      border: none; background: none; cursor: pointer;
-      border-bottom: 2px solid transparent; white-space: nowrap;
-      transition: 0.18s;
-    }
-    .tab:hover { color: #ede8f8; }
-    .tab.on { color: #d44fef; border-bottom-color: #d44fef; }
-    .tab.teal.on { color: #00dcb4; border-bottom-color: #00dcb4; }
-    .portal-label { font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.2em; color: #1a2a2a; text-transform: uppercase; padding: 0 12px; display: flex; align-items: center; }
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a1008'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23C9A94A'>Δ</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a1008'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23C9A94A'>Δ</text></svg>">
 
-    /* Main Content */
-    .wrap { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 70px 32px 60px; }
-    .panel { display: none; animation: fadeIn 0.3s ease; }
-    .panel.on { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Typography */
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.25em; color: #6a247a; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-    .eyebrow::before { content: ''; width: 28px; height: 1px; background: #6a247a; }
-    .eyebrow.teal { color: #00a88a; }
-    .eyebrow.teal::before { background: #00a88a; }
-    h1 { font-family: 'Cinzel', serif; font-size: clamp(36px, 7vw, 72px); font-weight: 900; line-height: 0.95; margin-bottom: 24px; }
-    .gradient-text { background: linear-gradient(90deg, #d44fef, #e8304f, #00dcb4, #e8d455); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .intro { font-size: 18px; font-style: italic; color: rgba(237,232,248,0.5); max-width: 520px; margin-bottom: 40px; }
-
-    /* Stats */
-    .stats { display: flex; flex-wrap: wrap; gap: 2px; margin-bottom: 48px; }
-    .stat-card { background: #0a0415; border: 1px solid rgba(212,79,239,0.12); padding: 20px 28px; flex: 1; min-width: 130px; }
-    .stat-val { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; color: #d44fef; display: block; margin-bottom: 4px; }
-    .stat-val.teal { color: #00dcb4; }
-    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.18em; color: #2a1a3a; text-transform: uppercase; }
-
-    /* Grid Cards */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 2px; margin-top: 2px; }
-    .card { background: #0a0415; border: 1px solid rgba(212,79,239,0.1); padding: 28px; transition: 0.2s; }
-    .card:hover { border-color: rgba(212,79,239,0.4); background: #130820; }
-    .card-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-    .card-desc { font-size: 14px; color: rgba(237,232,248,0.45); line-height: 1.65; margin-bottom: 14px; }
-    .tag { font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.12em; color: #6a247a; border: 1px solid rgba(212,79,239,0.2); padding: 3px 8px; display: inline-block; }
-
-    /* Orbital Planets */
-    .orbital-system {
-      background: transparent;
-      margin: 20px 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .flower-core {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .flower-core svg {
-      filter: drop-shadow(0 0 15px rgba(212,79,239,0.5));
-      animation: floatFlower 4s ease-in-out infinite;
-    }
-    @keyframes floatFlower {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .flower-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7px;
-      letter-spacing: 0.25em;
-      color: #d44fef;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-    .orbit-row {
-      display: flex;
-      justify-content: center;
-    }
-    .planet {
-      background: rgba(10,4,21,0.85);
-      backdrop-filter: blur(10px);
-      padding: 22px 28px;
-      width: 340px;
-      border-left: 4px solid;
-      transition: all 0.25s ease;
-    }
-    .planet:hover {
-      transform: translateX(10px);
-      background: rgba(19,8,32,0.95);
-    }
-    .planet-primary { border-left-color: #d44fef; box-shadow: -6px 0 20px rgba(212,79,239,0.2); }
-    .planet-secondary { border-left-color: #00dcb4; box-shadow: -6px 0 20px rgba(0,220,180,0.2); }
-    .planet-tertiary { border-left-color: #e8304f; box-shadow: -6px 0 20px rgba(232,48,79,0.15); }
-    .planet-name {
-      font-family: 'Cinzel', serif;
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      margin-bottom: 6px;
-    }
-    .planet-stat {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .planet-primary .planet-stat { color: #d44fef; }
-    .planet-secondary .planet-stat { color: #00dcb4; }
-    .planet-tertiary .planet-stat { color: #e8304f; }
-    .planet-desc {
-      font-size: 13px;
-      color: rgba(237,232,248,0.55);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .planet-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7px;
-      letter-spacing: 0.1em;
-      color: #2a1a3a;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 3px 8px;
-      display: inline-block;
-    }
-
-    /* Portal */
-    .portal-hero { background: #0a0415; border: 1px solid rgba(0,220,180,0.15); padding: 40px; margin-bottom: 2px; }
-    .portal-name { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 900; margin-bottom: 8px; }
-    .portal-desc { font-size: 15px; color: rgba(237,232,248,0.5); margin-bottom: 24px; max-width: 500px; }
-    .login-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 2px; display: none; }
-    .login-box { background: #0a0415; border: 1px solid rgba(0,220,180,0.1); padding: 32px; }
-    .login-input { width: 100%; background: #05020f; border: 1px solid rgba(0,220,180,0.15); color: #ede8f8; padding: 10px 12px; margin-bottom: 14px; font-family: inherit; }
-    .login-input:focus { border-color: #00a88a; outline: none; }
-    .btn-login { width: 100%; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; padding: 12px; background: #00dcb4; border: none; color: #02000a; cursor: pointer; }
-    .btn-login:hover { background: #00ffcc; box-shadow: 0 0 18px rgba(0,220,180,0.4); }
-
-    /* Modal */
-    .overlay { position: fixed; inset: 0; background: rgba(2,0,10,0.94); backdrop-filter: blur(12px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.2s; }
-    .overlay.open { opacity: 1; pointer-events: all; }
-    .modal { background: #0a0415; border: 1px solid rgba(212,79,239,0.4); padding: 40px; width: 90%; max-width: 420px; position: relative; }
-    .modal-x { position: absolute; top: 12px; right: 16px; background: none; border: none; color: #2a1a3a; font-size: 18px; cursor: pointer; }
-    .modal-x:hover { color: #d44fef; }
-    .field { margin-bottom: 14px; }
-    .field label { font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #2a1a3a; display: block; margin-bottom: 5px; }
-    .field input, .field select, .field textarea { width: 100%; background: #05020f; border: 1px solid rgba(212,79,239,0.14); color: #ede8f8; padding: 10px; font-family: inherit; }
-    .btn-send { width: 100%; background: #d44fef; border: none; color: #02000a; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; padding: 12px; cursor: pointer; margin-top: 8px; }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(212,79,239,0.1);
-      padding: 32px 32px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
-    }
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .footer-head {
-      font-family: 'Cinzel', serif;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: #6a247a;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .footer-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.1em;
-      color: #2a1a3a;
-      line-height: 1.8;
-    }
-    .footer-text a {
-      color: #3a1a55;
-      text-decoration: none;
-    }
-    .footer-text a:hover {
-      color: #d44fef;
-    }
-
-    @media (max-width: 700px) {
-      .wrap { padding: 70px 16px 50px; }
-      .tabs { padding: 0 12px; }
-      .login-grid { grid-template-columns: 1fr; }
-      .planet { width: 90%; }
-      .footer-grid { flex-direction: column; text-align: center; }
-      .footer-grid div:last-child { text-align: center; }
-    }
-  </style>
-</head>
-<body>
-
-<div id="cur"></div>
-<div id="cur-ring"></div>
-<canvas id="bg"></canvas>
-<div class="noise"></div>
-
-<header>
-  <a href="#" class="logo" onclick="switchTab('home', this); return false;">
-    <svg class="flower-icon" viewBox="0 0 80 80" fill="none">
-      <ellipse cx="40" cy="16" rx="7" ry="16" stroke="#d44fef" stroke-width="1.4" opacity="0.85"/>
-      <ellipse cx="40" cy="16" rx="7" ry="16" stroke="#e8304f" stroke-width="1.4" opacity="0.85" transform="rotate(72 40 40)"/>
-      <ellipse cx="40" cy="16" rx="7" ry="16" stroke="#00dcb4" stroke-width="1.4" opacity="0.85" transform="rotate(144 40 40)"/>
-      <ellipse cx="40" cy="16" rx="7" ry="16" stroke="#d44fef" stroke-width="1.4" opacity="0.85" transform="rotate(216 40 40)"/>
-      <ellipse cx="40" cy="16" rx="7" ry="16" stroke="#e8304f" stroke-width="1.4" opacity="0.85" transform="rotate(288 40 40)"/>
-      <circle cx="40" cy="40" r="8" stroke="#c9a94a" stroke-width="1.4" fill="none"/>
-      <circle cx="40" cy="40" r="3.5" fill="#e8d455"/>
-    </svg>
-    <div><div class="logo-text">Ticonderoga</div><span class="logo-loc">Craig, Colorado</span></div>
-  </a>
-  <div>
-    <button class="btn btn-portal" onclick="switchTab('client', document.getElementById('tab-client'))">Portal</button>
-    <button class="btn btn-touch" onclick="openModal()">Contact</button>
-  </div>
-</header>
-
-<div class="tabs">
-  <button id="tab-home" class="tab on" onclick="switchTab('home', this)">Home</button>
-  <button id="tab-platform" class="tab" onclick="switchTab('platform', this)">Platform</button>
-  <button id="tab-commerce" class="tab" onclick="switchTab('commerce', this)">Commerce</button>
-  <button id="tab-community" class="tab" onclick="switchTab('community', this)">Community</button>
-  <button id="tab-gazette" class="tab" onclick="switchTab('gazette', this)">Gazette</button>
-  <div class="portal-label">PORTALS</div>
-  <button class="tab teal" id="tab-client" onclick="switchTab('client', this)">Client</button>
-  <button class="tab teal" id="tab-vendor" onclick="switchTab('vendor', this)">Vendor</button>
-  <button class="tab teal" id="tab-employee" onclick="switchTab('employee', this)">Employee</button>
-  <button class="tab teal" id="tab-partner" onclick="switchTab('partner', this)">Partner</button>
-</div>
-
-<div class="wrap">
-
-  <div class="panel on" id="panel-home">
-    <div class="eyebrow">Rural Intelligence · Colorado</div>
-    <h1>Where the <span class="gradient-text">high desert</span> thinks.</h1>
-    <p class="intro">Behavioral analytics, commerce infrastructure, and community media for markets the platforms forgot.</p>
-    <div class="stats">
-      <div class="stat-card"><span class="stat-val">Craig, CO</span><div class="stat-label">Headquarters</div></div>
-      <div class="stat-card"><span class="stat-val teal">Moffat County</span><div class="stat-label">Home Market</div></div>
-      <div class="stat-card"><span class="stat-val teal">3 Hubs</span><div class="stat-label">Regional Network</div></div>
-      <div class="stat-card"><span class="stat-val">970-287-6302</span><div class="stat-label">Direct Line</div></div>
-    </div>
-    <div class="grid">
-      <div class="card"><div class="card-title">Behavioral Analytics</div><div class="card-desc">Mapping how rural markets move, decide, and buy. Real intelligence, not noise.</div><span class="tag">DAP Engine</span></div>
-      <div class="card"><div class="card-title">Commerce Infrastructure</div><div class="card-desc">End-to-end franchise deployment. 48-hour launch. Built for solo operators.</div><span class="tag">BEANS Platform</span></div>
-      <div class="card"><div class="card-title">Writing Intelligence</div><div class="card-desc">On-device, private AI that learns how you write. No cloud required.</div><span class="tag">Ticon Assist</span></div>
-      <div class="card"><div class="card-title">Community Media</div><div class="card-desc">The Gazette + Local Paper Hut. Presence and memory, not just news.</div><span class="tag">The Gazette</span></div>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-platform">
-    <div class="eyebrow">The Platform</div>
-    <p class="intro">Infrastructure that stays on and keeps score while everything else changes.</p>
-    <div class="grid">
-      <div class="card"><div class="card-title">DAP Engine</div><div class="card-desc">Four behavioral profiles. Regression guard. Long-term value scoring.</div><span class="tag">LTV Intelligence</span></div>
-      <div class="card"><div class="card-title">Ticon Recon</div><div class="card-desc">Hub-level telemetry. Runs anywhere. Your window into the field.</div><span class="tag">Operator Tool</span></div>
-      <div class="card"><div class="card-title">TEAKWOOD Protocol</div><div class="card-desc">Truth-first. Event-immutable. Audit-locked. On-prem sovereign.</div><span class="tag">Core Standard</span></div>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-commerce">
-    <div class="eyebrow">Commerce</div>
-    <p class="intro">Where platform meets physical world — franchise, retail pilots, and operators.</p>
-    <div class="grid">
-      <div class="card"><div class="card-title">Quill & Saber</div><div class="card-desc">The commercial face. Operators access scoring, deployment, intelligence.</div><span class="tag">Franchise Model</span></div>
-      <div class="card"><div class="card-title">BEANS V1.1</div><div class="card-desc">48-hour deployment · 92% efficiency · Solo-operator ready.</div><span class="tag">Deployment System</span></div>
-      <div class="card"><div class="card-title">J Sons & Wyld</div><div class="card-desc">Retail pilot in Craig. The feedback loop that sharpens the platform.</div><span class="tag">Active Pilot</span></div>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-community">
-    <div class="eyebrow teal">Community · Rooted in Craig</div>
-    
-    <div class="orbital-system">
-      <div class="flower-core">
-        <svg width="85" height="85" viewBox="0 0 100 100">
-          <ellipse cx="50" cy="32" rx="9" ry="20" stroke="#d44fef" stroke-width="2" fill="none"/>
-          <ellipse cx="50" cy="32" rx="9" ry="20" stroke="#e8304f" stroke-width="2" fill="none" transform="rotate(72 50 50)"/>
-          <ellipse cx="50" cy="32" rx="9" ry="20" stroke="#00dcb4" stroke-width="2" fill="none" transform="rotate(144 50 50)"/>
-          <ellipse cx="50" cy="32" rx="9" ry="20" stroke="#d44fef" stroke-width="2" fill="none" transform="rotate(216 50 50)"/>
-          <ellipse cx="50" cy="32" rx="9" ry="20" stroke="#e8304f" stroke-width="2" fill="none" transform="rotate(288 50 50)"/>
-          <circle cx="50" cy="50" r="10" stroke="#c9a94a" stroke-width="1.8" fill="none"/>
-          <circle cx="50" cy="50" r="4.5" fill="#e8d455"/>
-        </svg>
-        <div class="flower-label">◈ ROOT · TSH</div>
-      </div>
-
-      <div class="orbit-row">
-        <div class="planet planet-primary">
-          <div class="planet-name">◈ CRAIG</div>
-          <div class="planet-stat">72% · Primary Hub</div>
-          <div class="planet-desc">Home base. 6,000 ft. Built here because it only works if it works here first.</div>
-          <div class="planet-tag">Moffat County</div>
-        </div>
-      </div>
-
-      <div class="orbit-row">
-        <div class="planet planet-secondary">
-          <div class="planet-name">◈ HAYDEN</div>
-          <div class="planet-stat">45% · Secondary Hub</div>
-          <div class="planet-desc">Shares infrastructure. Independent data. Proof it scales.</div>
-          <div class="planet-tag">Routt County</div>
-        </div>
-      </div>
-
-      <div class="orbit-row">
-        <div class="planet planet-tertiary">
-          <div class="planet-name">◈ WALSENBURG</div>
-          <div class="planet-stat">21% · Tertiary Edge</div>
-          <div class="planet-desc">37.62°N · 6,171 ft. The network holds at the edges.</div>
-          <div class="planet-tag">Huerfano County</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid" style="margin-top: 20px;">
-      <div class="card"><div class="card-title">Grant Pipeline</div><div class="card-desc">~25 active programs. $3.7M–$11M range. Coal Transition, EDA, DOE.</div><span class="tag">Active Applications</span></div>
-      <div class="card"><div class="card-title">Institutional Partners</div><div class="card-desc">Craig City Hall, Moffat County, coal transition grant programs.</div><span class="tag">Engaged</span></div>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-gazette">
-    <div class="eyebrow">The Gazette</div>
-    <div style="border-bottom: 1px solid rgba(212,79,239,0.1); margin-bottom: 24px; padding-bottom: 16px;">
-      <div style="font-family: 'Cinzel', serif; font-size: clamp(28px,5vw,48px); font-weight: 900;">The <span style="color:#d44fef;">Ticonderoga</span> Gazette</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #2a1a3a;">Intelligence · Commerce · Community · Northwest Colorado</div>
-    </div>
-    <div class="grid">
-      <div class="card"><div class="card-title">Rural markets are not edge cases</div><div class="card-desc">The decisions made in Craig — what to buy, who to trust — are as sophisticated as any city.</div><span class="tag">Thesis</span></div>
-      <div class="card"><div class="card-title">What the scoring engine measures</div><div class="card-desc">Four profiles. Regression guard. Slow to judge, quick to revise.</div><span class="tag">DAP Engine</span></div>
-      <div class="card"><div class="card-title">J Sons & Wyld moves toward PO</div><div class="card-desc">Institutional supply program. First target locked. The feedback loop begins.</div><span class="tag">Retail Pilot</span></div>
-      <div class="card"><div class="card-title">Coal country in transition</div><div class="card-desc">$3.7M–$11M in active grants. The work is in applications and relationships.</div><span class="tag">Grant Landscape</span></div>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-client">
-    <div class="eyebrow teal">Client Portal</div>
-    <div class="portal-hero"><div class="portal-name">Client Access</div><div class="portal-desc">View account, track deployments, review analytics, message your operator.</div><button class="btn-login" style="width: auto; padding: 10px 24px;" onclick="toggleLogin('client-login')">Sign In</button></div>
-    <div class="login-grid" id="client-login"><div class="login-box"><input class="login-input" type="email" placeholder="Email"><input class="login-input" type="password" placeholder="Password"><button class="btn-login">Sign In</button><div style="font-size: 7px; margin-top: 12px; text-align: center;">Contact info@ticonderoga.online</div></div><div class="login-box"><div class="card-title" style="font-size: 14px;">What you access</div><div class="card-desc">Analytics · Deployment status · DAP reports · Invoices · Direct messaging</div></div></div>
-  </div>
-
-  <div class="panel" id="panel-vendor">
-    <div class="eyebrow teal">Vendor Portal</div>
-    <div class="portal-hero"><div class="portal-name">Vendor Access</div><div class="portal-desc">Submit POs, track fulfillment, review EDI transactions.</div><button class="btn-login" style="width: auto; padding: 10px 24px;" onclick="toggleLogin('vendor-login')">Sign In</button></div>
-    <div class="login-grid" id="vendor-login"><div class="login-box"><input class="login-input" type="text" placeholder="Vendor ID or Email"><input class="login-input" type="password" placeholder="Password"><button class="btn-login">Sign In</button></div><div class="login-box"><div class="card-title" style="font-size: 14px;">Vendor capabilities</div><div class="card-desc">PO tracking · EDI 850/856/810 · Advance ship notice · Invoice status</div></div></div>
-  </div>
-
-  <div class="panel" id="panel-employee">
-    <div class="eyebrow teal">Employee Portal</div>
-    <div class="portal-hero"><div class="portal-name">Team Access</div><div class="portal-desc">Internal tools, hub telemetry, operator resources.</div><button class="btn-login" style="width: auto; padding: 10px 24px;" onclick="toggleLogin('employee-login')">Sign In</button></div>
-    <div class="login-grid" id="employee-login"><div class="login-box"><input class="login-input" type="email" placeholder="you@ticonderoga.online"><input class="login-input" type="password" placeholder="Password"><button class="btn-login">Sign In</button></div><div class="login-box"><div class="card-title" style="font-size: 14px;">Team resources</div><div class="card-desc">Ticon Recon · DAP dashboard · Audit logs · Knowledge base</div></div></div>
-  </div>
-
-  <div class="panel" id="panel-partner">
-    <div class="eyebrow teal">Partner Portal</div>
-    <div class="portal-hero"><div class="portal-name">Partner Access</div><div class="portal-desc">Quill & Saber franchise, grant co-applicants, joint reporting.</div><button class="btn-login" style="width: auto; padding: 10px 24px;" onclick="toggleLogin('partner-login')">Sign In</button></div>
-    <div class="login-grid" id="partner-login"><div class="login-box"><input class="login-input" type="email" placeholder="partner@domain.com"><input class="login-input" type="password" placeholder="Password"><button class="btn-login">Sign In</button></div><div class="login-box"><div class="card-title" style="font-size: 14px;">Partner resources</div><div class="card-desc">Q&S docs · Co-branded assets · Grant materials · Shared analytics</div></div></div>
-  </div>
-
-</div>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-head">Ticonderoga Systems Holdings LLC</div>
-      <div class="footer-text">Craig, Colorado · Moffat County</div>
-      <div class="footer-text">Primary Hub: Craig · Secondary: Hayden · Tertiary: Walsenburg</div>
-    </div>
-    <div style="text-align: right;">
-      <div class="footer-head">Contact</div>
-      <div class="footer-text">970-287-6302</div>
-      <div class="footer-text"><a href="mailto:info@ticonderoga.online">info@ticonderoga.online</a></div>
-      <div class="footer-text">© 2026</div>
-    </div>
-  </div>
-</footer>
-
-<div class="overlay" id="modal" onclick="if(event.target===this) closeModal()">
-  <div class="modal"><button class="modal-x" onclick="closeModal()">✕</button><div class="card-title" style="margin-bottom: 6px;">Get in Touch</div><div class="card-desc" style="margin-bottom: 20px;">Platform inquiries, partnerships, community programs.</div>
-    <div class="field"><label>Name</label><input type="text"></div>
-    <div class="field"><label>Email or Phone</label><input type="text"></div>
-    <div class="field"><label>Topic</label><select><option>Platform / operator partnership</option><option>Local Paper Hut</option><option>Commerce / franchise</option><option>Gazette submission</option><option>Something else</option></select></div>
-    <div class="field"><label>Message</label><textarea rows="3"></textarea></div>
-    <button class="btn-send">Send Message</button>
-  </div>
-</div>
-
-<script>
-  /* ==========================================
-     1. Tab and Sub-Portal Switching Engine
-     ========================================== */
-  function switchTab(id, btn) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
-    
-    let targetBtn = btn;
-    if (btn && btn.id !== 'tab-' + id) {
-      const match = document.getElementById('tab-' + id);
-      if (match) targetBtn = match;
-    }
-    
-    if (targetBtn) targetBtn.classList.add('on');
-    
-    const panel = document.getElementById('panel-' + id);
-    if (panel) panel.classList.add('on');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  /* ==========================================
-     2. Portal & Modal Interface Controllers
-     ========================================== */
-  function toggleLogin(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      const currentDisplay = el.style.display || window.getComputedStyle(el).display;
-      el.style.display = currentDisplay === 'none' ? 'grid' : 'none';
-    }
-  }
-
-  function openModal() { document.getElementById('modal').classList.add('open'); }
-  function closeModal() { document.getElementById('modal').classList.remove('open'); }
-
-  document.addEventListener('keydown', e => { 
-    if (e.key === 'Escape') closeModal(); 
-  });
-
-  /* ==========================================
-     3. Custom Tracking Cursor Implementation
-     ========================================== */
-  const cur = document.getElementById('cur');
-  const ring = document.getElementById('cur-ring');
-
-  if (cur && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    });
-
-    document.querySelectorAll('button, a, .card, .planet').forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        ring.style.transform = 'translate(-50%, -50%) scale(1.5)';
-      });
-      item.addEventListener('mouseleave', () => {
-        ring.style.transform = 'translate(-50%, -50%) scale(1.0)';
-      });
-    });
-  }
-
-  /* ==========================================
-     4. Canvas Vector Particle Engine Setup
-     ========================================== */
-  const canvas = document.getElementById('bg');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    
-    function resizeCanvas() { 
-      canvas.width = window.innerWidth; 
-      canvas.height = window.innerHeight; 
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const chars = '◈◉○●⬡△▽⊕⊗✦✧❋✿⁕|░⌬';
-    const colors = [[212,79,239], [232,48,79], [0,220,180], [0,170,255]];
-    let particles = [];
-    
-    for (let i = 0; i < 60; i++) {
-      particles.push({ 
-        x: Math.random() * canvas.width, 
-        y: Math.random() * canvas.height, 
-        spd: 0.3 + Math.random() * 0.6, 
-        col: colors[Math.floor(Math.random() * colors.length)], 
-        size: 8 + Math.random() * 6,
-        char: chars[Math.floor(Math.random() * chars.length)]
-      });
-    }
-
-    function drawBG() {
-      ctx.fillStyle = 'rgba(2,0,10,0.08)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      for (let p of particles) {
-        ctx.fillStyle = `rgba(${p.col[0]}, ${p.col[1]}, ${p.col[2]}, 0.5)`;
-        ctx.font = `${p.size}px 'JetBrains Mono', monospace`;
-        ctx.fillText(p.char, p.x, p.y);
-        
-        p.y += p.spd;
-        if (p.y > canvas.height + 50) { 
-          p.y = -30; 
-          p.x = Math.random() * canvas.width; 
-        }
-      }
-      animationFrameId = requestAnimationFrame(drawBG);
-    }
-    drawBG();
-  }
-
-  /* ==========================================
-     5. Form Capture & Event Submissions
-     ========================================== */
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactBtn = document.querySelector('.btn-send');
-    if (contactBtn) {
-      contactBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const inputs = document.querySelectorAll('.modal .field input, .modal .field textarea, .modal .field select');
-        let formData = {};
-        inputs.forEach((input, index) => {
-          const label = input.previousElementSibling ? input.previousElementSibling.textContent : `field_${index}`;
-          formData[label] = input.value;
-        });
-        
-        console.log('TSH Contact Intake Target Linked:', formData);
-        contactBtn.textContent = 'TRANSMITTED';
-        contactBtn.style.background = '#00dcb4';
-        
-        setTimeout(() => {
-          closeModal();
-          contactBtn.textContent = 'Send Message';
-          contactBtn.style.background = '#d44fef';
-          inputs.forEach(i => i.value = '');
-        }, 1200);
-      });
-    }
-
-    document.querySelectorAll('.login-box').forEach(box => {
-      const loginSubmitBtn = box.querySelector('.btn-login');
-      if (loginSubmitBtn) {
-        loginSubmitBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const credentials = box.querySelectorAll('input');
-          if (credentials.length > 0 && credentials[0].value) {
-            loginSubmitBtn.textContent = 'CONNECTING...';
-            loginSubmitBtn.style.background = '#e8304f';
-            loginSubmitBtn.style.color = '#ede8f8';
-            
-            setTimeout(() => {
-              alert(`Terminal Handshake Error: Direct pipeline auth for "${credentials[0].value}" requires TEAKWOOD physical transit keyfobs.`);
-              loginSubmitBtn.textContent = 'Sign In';
-              loginSubmitBtn.style.background = '#00dcb4';
-              loginSubmitBtn.style.color = '#02000a';
-            }, 1000);
-          }
-        });
-      }
-    });
-  });
-</script>
-
+<!-- ── STRUCTURED DATA (Schema.org JSON-LD) ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ticonderoga Systems Holdings LLC",
-  "url": "https://ticonderoga.online",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Craig",
-    "addressRegion": "CO",
-    "addressCountry": "US"
+  "@type": "Newspaper",
+  "name": "The Craig Gazette",
+  "alternateName": "Craig Gazette",
+  "url": "https://ticonderogasystems.xyz",
+  "description": "A weekly technical record of regional infrastructure and resource sovereignty in Moffat County, Colorado.",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ticonderoga Systems Holdings LLC",
+    "url": "https://ticonderoga.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ticonderogasystems.xyz/og-image.jpg"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Craig",
+      "addressRegion": "CO",
+      "postalCode": "81625",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "gazette@ticonderogasystems.xyz",
+      "contactType": "editorial"
+    }
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+19702876302",
-    "contactType": "customer service"
+  "foundingDate": "2026",
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Craig, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Craig",
+      "addressRegion": "CO",
+      "addressCountry": "US"
+    }
   }
+}
+</script>
+
+<!-- ── PERFORMANCE: PRECONNECT ── -->
+<link rel="preconnect" href="https://formspree.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#1a1008;
+  --paper:#f5f0e8;
+  --paper-dark:#ede8dc;
+  --rule:#c8b89a;
+  --gold:#C9A94A;
+  --red:#8a2010;
+  --green:#1a4a28;
+}
+html,body{height:100%;overflow:hidden;background:#2a1505;}
+
+/* ── SCENE / PAGES ── */
+.scene{width:100vw;height:100vh;position:relative;overflow:hidden;}
+.page{position:absolute;top:0;left:0;width:100%;height:100%;overflow-y:auto;background:var(--paper);transform-origin:top center;}
+#page2{transform:translateY(100%);z-index:1;}
+#page1{z-index:2;}
+
+/* CASCADE */
+.cascading #page1{animation:coffeeSpill 1.5s cubic-bezier(0.4,0,0.2,1) forwards;z-index:2;pointer-events:none;}
+.cascading #page2{transform:translateY(0);z-index:1;}
+.cascade-wash{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,transparent 0%,rgba(61,28,2,0.88) 55%,rgba(20,8,0,0.98) 100%);pointer-events:none;z-index:10;opacity:0;}
+.cascading .cascade-wash{animation:washFade 1.5s cubic-bezier(0.4,0,0.2,1) forwards;}
+@keyframes coffeeSpill{
+  0%{transform:translateY(0) rotate(0deg) scaleX(1);opacity:1;}
+  10%{transform:translateY(1vh) rotate(-0.5deg) scaleX(1.005);opacity:1;}
+  30%{transform:translateY(12vh) rotate(-2deg) scaleX(1.01);opacity:0.9;}
+  60%{transform:translateY(45vh) rotate(-4deg) scaleX(1.015);opacity:0.55;}
+  100%{transform:translateY(115vh) rotate(-6deg) scaleX(1.02);opacity:0;}
+}
+@keyframes washFade{
+  0%{opacity:0;}15%{opacity:1;}80%{opacity:1;}100%{opacity:0;}
+}
+.flipping-back #page2{animation:slideBack 0.9s cubic-bezier(0.4,0,0.2,1) forwards;z-index:2;}
+.flipping-back #page1{transform:translateY(0);z-index:1;}
+@keyframes slideBack{0%{transform:translateY(0);}100%{transform:translateY(100%);}}
+
+/* ── PAPER ── */
+.paper-inner{max-width:1060px;margin:0 auto;background:var(--paper);border-left:1px solid var(--rule);border-right:1px solid var(--rule);box-shadow:0 0 40px rgba(0,0,0,0.25);padding-bottom:0;}
+font-family:'Times New Roman',Times,serif;
+
+/* FLAG */
+.flag{padding:1.5rem 2rem 0;text-align:center;border-bottom:4px double var(--ink);font-family:'Times New Roman',Times,serif;}
+.flag-top{display:flex;justify-content:space-between;padding-bottom:0.5rem;border-bottom:1px solid var(--ink);margin-bottom:0.75rem;font-size:9px;color:#4a3a20;text-transform:uppercase;letter-spacing:1px;}
+.flag-name{font-size:76px;font-weight:bold;line-height:1;letter-spacing:5px;font-family:'Times New Roman',Times,serif;}
+.flag-tagline{font-style:italic;font-size:12px;color:#5a4a28;margin-bottom:0.75rem;letter-spacing:1px;}
+.flag-bottom{display:flex;justify-content:space-between;padding-top:0.5rem;font-size:8px;color:#4a3a20;border-top:1px solid var(--rule);text-transform:uppercase;padding-bottom:0.75rem;}
+.tico-badge{display:inline-block;font-family:'Courier New',monospace;background:var(--ink);color:var(--gold);padding:2px 10px;font-size:9px;letter-spacing:2px;}
+.flip-btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Times New Roman',Times,serif;font-size:10px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;padding:6px 18px;border:none;cursor:pointer;transition:background 0.2s;margin-bottom:0.75rem;}
+.flip-btn:hover{background:var(--red);}
+.back-btn{display:inline-block;background:transparent;color:var(--ink);font-family:'Times New Roman',Times,serif;font-size:10px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;padding:6px 18px;border:1px solid var(--ink);cursor:pointer;transition:all 0.2s;margin-bottom:0.75rem;}
+.back-btn:hover{background:var(--ink);color:var(--paper);}
+
+/* JAKE BANNER */
+.jake-banner{padding:1.75rem 2rem;border-bottom:3px solid var(--ink);text-align:center;font-family:'Times New Roman',Times,serif;}
+.jake-kicker{font-size:10px;font-weight:bold;letter-spacing:5px;color:var(--red);text-transform:uppercase;margin-bottom:8px;}
+.jake-hed{font-size:66px;font-weight:bold;line-height:1;margin-bottom:10px;}
+.jake-dek{font-style:italic;font-size:15px;color:#5a4a28;max-width:650px;margin:0 auto;line-height:1.45;}
+
+/* SECTION RULE */
+.srule{display:flex;align-items:center;}
+.srule-bar{flex:1;height:1px;background:var(--ink);}
+.srule-text{font-size:9px;font-weight:bold;letter-spacing:3px;color:var(--ink);padding:4px 12px;border:1px solid var(--ink);text-transform:uppercase;font-family:'Times New Roman',Times,serif;}
+
+/* THREE COLUMNS */
+.front-three{display:grid;grid-template-columns:1fr 1px 1.8fr 1px 1fr;border-bottom:2px solid var(--ink);}
+.col-divider{background:var(--rule);width:1px;}
+.col{padding:1.25rem;font-family:'Times New Roman',Times,serif;}
+.kicker{font-size:9px;font-weight:bold;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:6px;}
+.hed-main{font-size:21px;font-weight:bold;margin-bottom:8px;line-height:1.2;}
+.hed-sub{font-size:16px;font-weight:bold;margin-bottom:6px;}
+.byline{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#7a6a48;margin-bottom:12px;}
+.body-text{font-size:13px;line-height:1.65;text-align:justify;color:var(--ink);}
+.body-text p{margin-bottom:12px;}
+.pullquote{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:12px 8px;margin:16px 0;text-align:center;font-style:italic;font-size:15px;}
+.data-box{background:var(--paper-dark);border:1px solid #a89878;padding:12px;font-family:'Courier New',monospace;font-size:10px;margin:15px 0;line-height:1.9;color:#4a3a18;}
+.data-box .exposed{color:var(--red);}
+.data-box .vuln{color:#7a5a00;}
+.data-box .secured{color:var(--green);}
+
+/* AUDIT TABLE */
+.audit-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px;font-family:'Times New Roman',Times,serif;}
+.audit-table th{font-size:9px;letter-spacing:2px;text-transform:uppercase;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding:6px 4px;text-align:left;}
+.audit-table td{padding:6px 4px;border-bottom:0.5px solid var(--rule);}
+.audit-table tr:nth-child(even) td{background:var(--paper-dark);}
+.st-exposed{color:var(--red);font-family:'Courier New',monospace;font-size:9px;font-weight:bold;}
+.st-vuln{color:#7a5a00;font-family:'Courier New',monospace;font-size:9px;font-weight:bold;}
+.st-crit{color:#6a0808;font-family:'Courier New',monospace;font-size:9px;font-weight:bold;}
+.st-audit{color:#4a5a00;font-family:'Courier New',monospace;font-size:9px;font-weight:bold;}
+
+/* OPEN CALL BOX */
+.open-call-box{background:var(--paper-dark);border-left:4px solid var(--red);padding:14px;margin:16px 0;}
+.open-call-title{font-weight:bold;font-size:13px;color:var(--red);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;}
+
+/* SIGNAL STATUS */
+.signal-grid{font-family:'Courier New',monospace;font-size:10px;line-height:2;color:#4a3a18;}
+.signal-row{display:flex;justify-content:space-between;border-bottom:0.5px solid var(--rule);padding:2px 0;}
+.sig-active{color:var(--green);}
+.sig-warn{color:#7a5a00;}
+.sig-alert{color:var(--red);}
+
+/* PIPELINE */
+.pipeline{background:var(--paper-dark);border:1px solid #a89878;border-left:3px solid var(--ink);padding:0.85rem 1rem;margin:0.85rem 0;font-family:'Courier New',Courier,monospace;font-size:10px;line-height:2;color:#4a3a18;}
+
+/* ── FORM SECTION ── */
+.form-section{background:var(--paper-dark);padding:24px 2rem;border-top:3px solid var(--ink);}
+.form-section-title{font-size:9px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px;margin-bottom:1rem;font-family:'Times New Roman',Times,serif;}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;background:white;border:1px solid var(--rule);padding:12px;margin-bottom:1rem;}
+.check-item{display:flex;align-items:center;gap:8px;font-size:12px;font-family:'Times New Roman',Times,serif;}
+.check-item input[type="checkbox"]{width:16px;height:16px;accent-color:var(--gold);margin:0;flex-shrink:0;}
+.check-item label{margin:0;font-weight:normal;letter-spacing:normal;text-transform:none;cursor:pointer;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;}
+.form-row.full{grid-template-columns:1fr;}
+.field{display:flex;flex-direction:column;gap:3px;}
+.field label{font-family:'Times New Roman',Times,serif;font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#5a4a28;}
+.field input,.field select,.field textarea{background:white;border:1px solid var(--rule);border-bottom:2px solid var(--ink);padding:8px 10px;font-family:'Times New Roman',Times,serif;font-size:14px;color:var(--ink);outline:none;width:100%;transition:border-color 0.2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink);background:#fffcf8;}
+.field textarea{resize:vertical;min-height:110px;}
+.field select{appearance:none;cursor:pointer;}
+.submit-row{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--rule);}
+.submit-note{font-family:'Times New Roman',Times,serif;font-style:italic;font-size:12px;color:#7a6a48;max-width:280px;line-height:1.4;}
+.submit-btn{background:var(--ink);color:var(--paper);font-family:'Times New Roman',Times,serif;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;padding:10px 28px;border:none;cursor:pointer;transition:background 0.2s;}
+.submit-btn:hover{background:var(--red);}
+.id-badge{font-family:'Courier New',monospace;font-size:9px;background:var(--ink);color:var(--gold);padding:4px 10px;letter-spacing:1px;}
+.success-msg{display:none;text-align:center;padding:1.5rem;font-family:'Times New Roman',Times,serif;}
+.success-msg .big{font-size:26px;font-weight:bold;margin-bottom:0.5rem;}
+.success-msg .small{font-style:italic;font-size:14px;color:#5a4a28;}
+.success-msg .sid{font-family:'Courier New',monospace;font-size:11px;color:var(--green);margin-top:8px;}
+
+/* FOOTER */
+.footer{background:var(--ink);color:var(--paper);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;font-size:8px;letter-spacing:1px;font-family:'Times New Roman',Times,serif;}
+.footer .fg{color:var(--gold);}
+.ornament{text-align:center;font-size:14px;color:#a89878;margin:0.5rem 0;}
+
+/* PAGE 2 SUBMIT BANNER */
+.sub-banner{padding:1.75rem 2rem;border-bottom:3px solid var(--ink);text-align:center;font-family:'Times New Roman',Times,serif;}
+.sub-hed{font-size:52px;font-weight:bold;line-height:1.05;letter-spacing:2px;margin-bottom:0.5rem;}
+.sub-dek{font-style:italic;font-size:15px;color:#5a4a28;max-width:580px;margin:0 auto 0.75rem;line-height:1.5;}
+.sub-grid{display:grid;grid-template-columns:1.6fr 1px 1fr;border-bottom:2px solid var(--ink);}
+.sub-sidebar{padding:1.5rem 1.25rem;font-family:'Times New Roman',Times,serif;}
+.sidebar-block{padding:0.65rem 0;border-bottom:0.5px solid var(--rule);font-size:13px;color:var(--ink);line-height:1.6;}
+.sidebar-block:last-child{border-bottom:none;}
+.sidebar-block strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:3px;}
+.audit-promise{background:var(--paper-dark);border:1px solid #a89878;border-left:3px solid var(--ink);padding:1rem;margin-top:1rem;font-family:'Courier New',Courier,monospace;font-size:10px;line-height:2;color:#4a3a18;}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  .front-three{grid-template-columns:1fr;}
+  .col-divider{display:none;}
+  .flag-name{font-size:44px;}
+  .jake-hed{font-size:40px;}
+  .form-row{grid-template-columns:1fr;}
+  .sub-grid{grid-template-columns:1fr;}
+  .sub-sidebar{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="scene" id="scene">
+<div class="cascade-wash"></div>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — THE FRONT PAGE
+══════════════════════════════════════ -->
+<div class="page" id="page1">
+<div class="paper-inner">
+
+  <!-- FLAG -->
+  <div class="flag">
+    <div class="flag-top">
+      <div>EST. 2026 · CRAIG, MOFFAT COUNTY, COLO.</div>
+      <div class="tico-badge">Δ TICONDEROGA SHIELD · ACTIVE</div>
+      <div>VOL. I · NO. 001</div>
+    </div>
+    <div class="flag-name">The Craig Gazette</div>
+    <div class="flag-tagline">"We do not seek to expose — we seek to enclose."</div>
+    <div class="flag-bottom">
+      <span>FRIDAY EDITION</span>
+      <span>LEDGER: 0x71c08af3...TICON</span>
+      <span>ALL RECORDS UNALTERABLE</span>
+    </div>
+    <button class="flip-btn" onclick="cascade()">▼ Submit to the Gazette — Turn Page</button>
+  </div>
+
+  <!-- JAKE BANNER -->
+  <div class="jake-banner">
+    <div class="jake-kicker">Chinatown Dispatch · Lead Story</div>
+    <div class="jake-hed">Forget It, Jake.<br>It's Craig.</div>
+    <div class="jake-dek">The signals from Craig Station are being diverted. Ticon Recon v2.1 has mapped the digital sluice gates — and what it found should concern every water rights holder, business owner, and resident of Moffat County.</div>
+  </div>
+
+  <div class="srule">
+    <div class="srule-bar"></div>
+    <div class="srule-text">Regional Audit — Front Page</div>
+    <div class="srule-bar"></div>
+  </div>
+
+  <!-- THREE COLUMNS -->
+  <div class="front-three">
+
+    <!-- LEFT: HEADWATERS -->
+    <div class="col">
+      <div class="kicker">The Headwaters Contract</div>
+      <div class="hed-main">Who Holds the Valve?</div>
+      <div class="byline">Ticon Recon Field Office · Craig</div>
+      <div class="body-text">
+        <p>The Yampa River dropped below <strong>120 cubic feet per second</strong> on April 21. That number triggers the city's first-ever codified water restriction ordinance — set for introduction April 28, 2026.</p>
+        <p>Ticon Recon identified <strong>seven undisclosed water right transfers</strong> tied to parcels adjacent to the closing Craig Station coal plant. The buyers: LLCs registered to a post office box in Ogden, Utah — same city as the parent company of the <em>Craig Daily Press</em>.</p>
+        <div class="pullquote">"The water isn't leaving Moffat County.<br>The control of the water is."</div>
+        <p>The augmentation plan transferred water rights from Tri-State to a newly formed trust. The beneficiary list remains sealed — accessible only to signatories of what insiders call <em>"The Headwaters Contract."</em> Next meeting: May 15, Elks Lodge, Steamboat Springs.</p>
+      </div>
+      <div class="data-box">
+        <div>root@ticonderoga:~/headwaters$ cat contract.log</div>
+        <div>────────────────────────────────────</div>
+        <div><span class="secured">drwx------</span> TRUST_BENEFICIARIES &nbsp;[SEALED]</div>
+        <div><span class="exposed">drwxr-xr-x</span> WATER_RIGHT_XFERS &nbsp;&nbsp;[7 ENTRIES]</div>
+        <div><span class="vuln">drwx------</span> ELKS_LOUNGE_MTG &nbsp;&nbsp;&nbsp;[MAY 15]</div>
+        <div><span class="secured">-rw-r--r--</span> 120CFS_TRIGGER &nbsp;&nbsp;&nbsp;&nbsp;[ACTIVE]</div>
+      </div>
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- MIDDLE: AUDIT TABLE + INTEGRITY -->
+    <div class="col">
+      <div class="kicker">Regional Audit · Table of Positions</div>
+      <table class="audit-table">
+        <thead>
+          <tr><th>Sector</th><th>Asset</th><th>Controller</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Utilities</strong></td><td>Craig Station Logistics</td><td>Tri-State / WV Hubs</td><td><span class="st-exposed">EXPOSED</span></td></tr>
+          <tr><td><strong>Resources</strong></td><td>Water Rights / Parcels</td><td>Municipal PDF Metadata</td><td><span class="st-vuln">VULNERABLE</span></td></tr>
+          <tr><td><strong>Media</strong></td><td>Public Awareness</td><td>Ogden Newspapers (WV)</td><td><span class="st-crit">CRITICAL</span></td></tr>
+          <tr><td><strong>Commerce</strong></td><td>Main Street Network</td><td>Local Web Directories</td><td><span class="st-exposed">EXPOSED</span></td></tr>
+          <tr><td><strong>Oversight</strong></td><td>Regional Public Records</td><td>Craig PD / Moffat SO</td><td><span class="st-audit">UNDER AUDIT</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="srule" style="margin:1rem 0;">
+        <div class="srule-bar"></div>
+        <div class="srule-text">The Integrity of the Grid</div>
+        <div class="srule-bar"></div>
+      </div>
+
+      <div class="body-text">
+        <p><strong>Craig, Colo. —</strong> There is a silent architecture that holds this valley together. It is composed of water rights, power generation, and the flow of local information. For too long, we have assumed this architecture was being maintained with the same care we give our own homes.</p>
+        <p>A Technical Operational Profile conducted by Ticonderoga Systems Holdings suggests otherwise. Our plumbing — the digital and logistical connections between anchor institutions and local storefronts — is operating in a state of high transparency. This is not a failure of the people of Craig. It is a failure of the systems managed by distant interests.</p>
+        <div class="pullquote">"If you are a local plumber or welder, your 2027 contract is being calculated on a server in West Virginia that we just audited. They aren't protecting your future — we are."</div>
+        <p>When a zoning change is discussed in a locked PDF, our Recon engine sees the metadata. We know who is buying the land before the For Sale sign is printed. This Ledger is the only place where the public sees the same map the insiders use.</p>
+      </div>
+
+      <!-- OPEN CALL BOX -->
+      <div class="open-call-box">
+        <div class="open-call-title">◉ Open Call — The Gazette Wants to Hear From You</div>
+        <p style="font-size:13px; margin-bottom:8px;">Do you have a story Craig isn't covering? A record that doesn't match what happened? A transaction that felt wrong? A document the public should see?</p>
+        <p style="font-size:12px; font-style:italic;">Anonymous is fine. The Gazette runs the record — not the rumor. Every submission is fact-checked before it publishes.</p>
+        <p style="font-size:11px; margin-top:8px; letter-spacing:1px;"><strong>gazette@ticonderogasystems.xyz</strong> &nbsp;·&nbsp; <button class="flip-btn" style="font-size:9px; padding:4px 12px; margin:0; vertical-align:middle;" onclick="cascade()">Submit Online ▼</button></p>
+      </div>
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- RIGHT: PIPELINE + SIGNAL + THIS EDITION -->
+    <div class="col">
+      <div class="kicker">This Edition</div>
+      <div style="font-size:13px; line-height:1.65; margin-bottom:1rem;">
+        <div style="padding:0.55rem 0; border-bottom:0.5px solid var(--rule);"><strong>The Headwaters Contract</strong> — Seven water right transfers, one sealed trust, one meeting on May 15.</div>
+        <div style="padding:0.55rem 0; border-bottom:0.5px solid var(--rule);"><strong>The Integrity of the Grid</strong> — How distant interests hold the valves of the Yampa Valley.</div>
+        <div style="padding:0.55rem 0; border-bottom:0.5px solid var(--rule);"><strong>Regional Audit Table</strong> — Five sectors, five exposure levels, one Ledger.</div>
+        <div style="padding:0.55rem 0; border-bottom:0.5px solid var(--rule);"><strong>Open Call</strong> — The stories we're watching and the tips we need.</div>
+        <div style="padding:0.55rem 0; color:var(--red);"><strong>Blockchain Ledger</strong> — Issue 001 permanently sealed on publish.</div>
+      </div>
+
+      <div class="ornament">— ✦ —</div>
+
+      <div class="kicker" style="margin-top:0.5rem;">Automation Pipeline</div>
+      <div class="pipeline">
+        <div style="color:var(--ink); font-weight:bold;">FakeDaily_Generator_v1.0</div>
+        <div style="color:var(--rule);">────────────────────────</div>
+        <div><span style="color:var(--ink);">[IN] </span>Craig Daily Press — Wed</div>
+        <div><span style="color:var(--ink);">[S1] </span>NYT + Chinatown + Gonzo</div>
+        <div><span style="color:var(--ink);">[S2] </span>Ticon Recon Inject</div>
+        <div><span style="color:var(--ink);">[S3] </span>SHA-256 Block Hash</div>
+        <div><span style="color:var(--ink);">[S4] </span>HTML Export — Fri</div>
+        <div style="color:var(--ink); font-weight:bold;">[OUT] GAZETTE LIVE</div>
+      </div>
+
+      <div class="ornament">— ✦ —</div>
+
+      <div class="kicker" style="margin-top:0.5rem;">Signal Status</div>
+      <div class="signal-grid">
+        <div class="signal-row"><span>TICON RECON</span><span class="sig-active">ACTIVE</span></div>
+        <div class="signal-row"><span>CDP INGESTED</span><span class="sig-warn">WED</span></div>
+        <div class="signal-row"><span>FORMSPREE</span><span class="sig-active">CONNECTED</span></div>
+        <div class="signal-row"><span>LEDGER HASH</span><span class="sig-active">LOCKED</span></div>
+        <div class="signal-row"><span>NEXT EDITION</span><span class="sig-alert">FRI</span></div>
+      </div>
+
+      <div class="ornament" style="margin-top:1rem;">— ✦ —</div>
+      <div style="text-align:center;">
+        <button class="flip-btn" onclick="cascade()">Submit a Story ▼</button>
+      </div>
+    </div>
+
+  </div><!-- /front-three -->
+
+  <!-- INLINE SUBMISSION FORM -->
+  <div class="form-section">
+    <div style="text-align:center; margin-bottom:1.25rem;">
+      <div class="jake-kicker">Submit to The Gazette</div>
+      <div style="font-family:'Times New Roman',Times,serif; font-style:italic; font-size:14px; color:#5a4a28;">Anonymous tips protected · All submissions fact-checked · Ledger-sealed on publish</div>
+    </div>
+
+    <form id="gazetteForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+      <div class="form-section-title">What Does Your Story Involve? (check all that apply)</div>
+      <div class="form-grid">
+        <div class="check-item"><input type="checkbox" name="category" value="Water Rights / Headwaters"><label>💧 Water rights / headwaters</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Craig Station / Energy"><label>⚡ Craig Station / energy</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Land / Zoning / Real Estate"><label>🏚 Land / zoning / real estate</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="City Council / Government"><label>🏛 City Council / government</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Public Records / CORA"><label>📄 Public records / CORA</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Police / Law Enforcement"><label>🔵 Police / law enforcement</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Business / Commerce"><label>🏪 Business / commerce</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Letter to the Editor"><label>✉️ Letter to the editor</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Obituary"><label>🕯 Obituary</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Community Notice"><label>📌 Community notice</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Classified"><label>📋 Classified</label></div>
+        <div class="check-item"><input type="checkbox" name="category" value="Other — Moffat County"><label>📍 Other — Moffat County</label></div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Name (optional — anonymous protected)</label>
+          <input type="text" name="name" placeholder="Anonymous or your name — never published without consent">
+        </div>
+        <div class="field">
+          <label>Contact (optional — for follow-up only)</label>
+          <input type="text" name="contact" placeholder="Email, Signal, or phone — protected">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Submission Type</label>
+          <select name="type">
+            <option value="">— Select —</option>
+            <option>News Tip</option>
+            <option>Letter to the Editor</option>
+            <option>Public Record / Document</option>
+            <option>Classified Ad</option>
+            <option>Obituary</option>
+            <option>Community Notice</option>
+            <option>Business Announcement</option>
+            <option>Event Listing</option>
+            <option>Correction Request</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Subject / Headline</label>
+          <input type="text" name="subject" placeholder="One line — what is this about?">
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>Your Story</label>
+          <textarea name="story" placeholder="Names, dates, locations, agencies, any details you know. If you have documents, describe them. The Gazette will contact you if we need more."></textarea>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>Supporting Links or References (optional)</label>
+          <input type="text" name="references" placeholder="URLs, document names, public record numbers, case numbers...">
+        </div>
+      </div>
+
+      <!-- honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_subject" value="New Gazette Submission">
+      <input type="hidden" name="_next" value="">
+      <input type="hidden" name="submission_id" id="sub-id-field" value="">
+
+      <div class="submit-row">
+        <div>
+          <div class="id-badge" id="inline-id-badge">ID: —</div>
+          <div class="submit-note" style="margin-top:6px;">Every submission enters the Gazette audit pipeline. We verify before we publish. Your identity is never shared without your explicit consent.</div>
+        </div>
+        <button type="submit" class="submit-btn">Submit to the Record →</button>
+      </div>
+
+    </form>
+
+    <div class="success-msg" id="inline-success">
+      <div class="big">Received.</div>
+      <div class="small">Your submission has entered the Gazette audit pipeline.<br>We will review within 48 hours. The record stands.</div>
+      <div class="sid" id="inline-success-id"></div>
+    </div>
+
+  </div><!-- /form-section -->
+
+  <div class="footer">
+    <span class="fg">Δ Ticonderoga Systems Holdings</span>
+    <span>gazette@ticonderogasystems.xyz</span>
+    <span>ticonderoga.online · ticonderogasystems.xyz</span>
+    <span class="fg">All Records Unalterable</span>
+  </div>
+
+</div><!-- /paper-inner -->
+</div><!-- /page1 -->
+
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — SUBMISSION (FULL PAGE)
+══════════════════════════════════════ -->
+<div class="page" id="page2">
+<div class="paper-inner">
+
+  <div class="flag">
+    <div class="flag-top">
+      <div>The Craig Gazette · Vol. I · 2026 · Craig, Moffat County, Colo.</div>
+      <div class="tico-badge">Δ SUBMISSIONS OPEN</div>
+      <div>gazette@ticonderogasystems.xyz</div>
+    </div>
+    <div class="flag-name">The Craig Gazette</div>
+    <div class="flag-tagline">Speak. We will carry it — or we will tell you why we can't.</div>
+    <div class="flag-bottom">
+      <span>Community Submissions Desk</span>
+      <span>All Tips Fact-Checked Before Print</span>
+      <span>Anonymous OK · Sources Protected</span>
+    </div>
+    <button class="back-btn" onclick="flipBack()">◀ Return to Front Page</button>
+  </div>
+
+  <div class="sub-banner">
+    <div class="jake-kicker">Community Desk</div>
+    <div class="sub-hed">Submit to<br>The Gazette</div>
+    <div class="sub-dek">News tips. Letters to the editor. Public records. Classifieds. Obituaries. Community notices. If it matters to Moffat County, it matters to us. Every submission is fact-checked and audited before it runs.</div>
+    <div style="font-size:9px; text-transform:uppercase; letter-spacing:2px; color:#7a6a48;">Submissions reviewed within 48 hours · Anonymous tips accepted · All sources protected</div>
+  </div>
+
+  <div class="srule">
+    <div class="srule-bar"></div>
+    <div class="srule-text">Submissions Desk — Open to the Public</div>
+    <div class="srule-bar"></div>
+  </div>
+
+  <div class="sub-grid">
+
+    <!-- FORM -->
+    <div style="padding:1.5rem;">
+
+      <form id="p2Form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+        <div class="form-section-title">What Does Your Story Involve?</div>
+        <div class="form-grid" style="margin-bottom:1rem;">
+          <div class="check-item"><input type="checkbox" name="category" value="Water Rights / Headwaters"><label>💧 Water rights / headwaters</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Craig Station / Energy"><label>⚡ Craig Station / energy</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Land / Zoning / Real Estate"><label>🏚 Land / zoning / real estate</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="City Council / Government"><label>🏛 City Council / government</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Public Records / CORA"><label>📄 Public records / CORA</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Police / Law Enforcement"><label>🔵 Police / law enforcement</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Business / Commerce"><label>🏪 Business / commerce</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Letter to the Editor"><label>✉️ Letter to the editor</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Obituary"><label>🕯 Obituary</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Community Notice"><label>📌 Community notice</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Classified"><label>📋 Classified</label></div>
+          <div class="check-item"><input type="checkbox" name="category" value="Other — Moffat County"><label>📍 Other — Moffat County</label></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Name (optional)</label>
+            <input type="text" name="name" placeholder="Anonymous — never published without consent">
+          </div>
+          <div class="field">
+            <label>Contact (optional)</label>
+            <input type="text" name="contact" placeholder="Email, Signal, phone — protected">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Submission Type</label>
+            <select name="type">
+              <option value="">— Select —</option>
+              <option>News Tip</option>
+              <option>Letter to the Editor</option>
+              <option>Public Record / Document</option>
+              <option>Classified Ad</option>
+              <option>Obituary</option>
+              <option>Community Notice</option>
+              <option>Business Announcement</option>
+              <option>Event Listing</option>
+              <option>Correction Request</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Subject / Headline</label>
+            <input type="text" name="subject" placeholder="One line — what is this about?">
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="field">
+            <label>Your Story</label>
+            <textarea name="story" placeholder="Names, dates, locations, agencies, any details you know."></textarea>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="field">
+            <label>Supporting Links or References (optional)</label>
+            <input type="text" name="references" placeholder="URLs, document names, record numbers...">
+          </div>
+        </div>
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="New Gazette Submission">
+        <input type="hidden" name="submission_id" id="p2-id-field" value="">
+
+        <div class="submit-row">
+          <div>
+            <div class="id-badge" id="p2-id-badge">ID: —</div>
+            <div class="submit-note" style="margin-top:6px;">Every submission enters the Gazette audit pipeline. Your identity is never shared without explicit consent.</div>
+          </div>
+          <button type="submit" class="submit-btn">Submit to the Record →</button>
+        </div>
+
+      </form>
+
+      <div class="success-msg" id="p2-success">
+        <div class="big">Received.</div>
+        <div class="small">Your submission has entered the Gazette audit pipeline.<br>We will review within 48 hours. The record stands.</div>
+        <div class="sid" id="p2-success-id"></div>
+        <div style="margin-top:1.25rem;"><button class="back-btn" onclick="flipBack()">◀ Return to Front Page</button></div>
+      </div>
+
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- SIDEBAR -->
+    <div class="sub-sidebar">
+      <div class="kicker">What We Accept</div>
+      <div class="sidebar-block"><strong>News Tips</strong>Anything you've seen, heard, or documented that the community should know — infrastructure, government, land, water, energy.</div>
+      <div class="sidebar-block"><strong>Letters to the Editor</strong>Your opinion, signed or anonymous. We fact-check claims. We do not edit your voice.</div>
+      <div class="sidebar-block"><strong>Public Records</strong>PDFs, meeting minutes, bids, contracts, permits. If it's public record and no one's covering it, we will.</div>
+      <div class="sidebar-block"><strong>Classifieds</strong>For sale, help wanted, services, land, livestock. Free for Craig and Moffat County residents.</div>
+      <div class="sidebar-block"><strong>Obituaries</strong>Submit the life. We'll set it in the record permanently.</div>
+      <div class="sidebar-block"><strong>Community Notices</strong>Events, meetings, announcements, warnings.</div>
+
+      <div class="audit-promise">
+        <div style="color:var(--ink); font-weight:bold; margin-bottom:4px;">GAZETTE AUDIT PIPELINE</div>
+        <div style="color:var(--rule);">────────────────────────</div>
+        <div><span style="color:var(--ink);">[S1] </span>Submission received</div>
+        <div><span style="color:var(--ink);">[S2] </span>Fact-check initiated</div>
+        <div><span style="color:var(--ink);">[S3] </span>Source verified or flagged</div>
+        <div><span style="color:var(--ink);">[S4] </span>Editorial review</div>
+        <div><span style="color:var(--ink);">[S5] </span>Publish → SHA-256 sealed</div>
+        <div style="color:var(--ink); font-weight:bold; margin-top:4px;">48hr turnaround · anonymous OK</div>
+      </div>
+
+      <div class="ornament" style="margin-top:1rem;">— ✦ —</div>
+      <div style="font-family:'Times New Roman',Times,serif; font-style:italic; font-size:13px; color:#5a4a28; line-height:1.6; text-align:center; margin-top:0.5rem;">
+        "We do not seek to expose;<br>we seek to enclose."<br>
+        <span style="font-style:normal; font-size:10px; letter-spacing:1px;">— Ticonderoga Systems Holdings</span>
+      </div>
+    </div>
+
+  </div><!-- /sub-grid -->
+
+  <div class="footer">
+    <span class="fg">Δ Ticonderoga Systems Holdings</span>
+    <span>gazette@ticonderogasystems.xyz</span>
+    <span>All submissions ledger-sealed on publish</span>
+    <span class="fg">The Record Stands</span>
+  </div>
+
+</div><!-- /paper-inner -->
+</div><!-- /page2 -->
+</div><!-- /scene -->
+
+<script>
+// ── SUBMISSION ID ──
+function generateId() {
+  const now = Date.now();
+  const oct = (now % 777).toString(8).padStart(3,'0');
+  const hex = Math.abs((now * 2654435761) & 0xFFFFFFFF).toString(16).slice(0,8);
+  return `GAZ-${oct}-${hex}`;
+}
+
+function initIds() {
+  const id1 = generateId();
+  const id2 = generateId();
+  document.getElementById('inline-id-badge').innerText = 'ID: ' + id1;
+  document.getElementById('sub-id-field').value = id1;
+  document.getElementById('p2-id-badge').innerText = 'ID: ' + id2;
+  document.getElementById('p2-id-field').value = id2;
+}
+initIds();
+
+// ── FORMSPREE AJAX SUBMIT (inline form) ──
+document.getElementById('gazetteForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const id = document.getElementById('sub-id-field').value;
+  const data = new FormData(this);
+  try {
+    const r = await fetch(this.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (r.ok) {
+      this.style.display = 'none';
+      const s = document.getElementById('inline-success');
+      document.getElementById('inline-success-id').innerText = 'Submission ID: ' + id;
+      s.style.display = 'block';
+    }
+  } catch(err) { alert('Submission failed — please email gazette@ticonderogasystems.xyz directly.'); }
+});
+
+// ── FORMSPREE AJAX SUBMIT (page 2 form) ──
+document.getElementById('p2Form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const id = document.getElementById('p2-id-field').value;
+  const data = new FormData(this);
+  try {
+    const r = await fetch(this.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (r.ok) {
+      this.style.display = 'none';
+      const s = document.getElementById('p2-success');
+      document.getElementById('p2-success-id').innerText = 'Submission ID: ' + id;
+      s.style.display = 'block';
+    }
+  } catch(err) { alert('Submission failed — please email gazette@ticonderogasystems.xyz directly.'); }
+});
+
+// ── CASCADE ANIMATION ──
+function cascade() {
+  const scene = document.getElementById('scene');
+  scene.classList.remove('flipping-back');
+  void scene.offsetWidth;
+  scene.classList.add('cascading');
+  setTimeout(() => {
+    scene.classList.remove('cascading');
+    const p1 = document.getElementById('page1');
+    p1.style.transform = 'translateY(115vh)';
+    p1.style.opacity = '0';
+    document.getElementById('page2').style.transform = 'translateY(0)';
+    document.getElementById('page2').scrollTop = 0;
+  }, 1500);
+}
+
+function flipBack() {
+  const scene = document.getElementById('scene');
+  const p1 = document.getElementById('page1');
+  const p2 = document.getElementById('page2');
+  p1.style.transform = '';
+  p1.style.opacity = '';
+  scene.classList.remove('cascading');
+  void scene.offsetWidth;
+  scene.classList.add('flipping-back');
+  setTimeout(() => {
+    scene.classList.remove('flipping-back');
+    p2.style.transform = 'translateY(100%)';
+    p1.scrollTop = 0;
+  }, 900);
 }
 </script>
 
 </body>
 </html>
-  
