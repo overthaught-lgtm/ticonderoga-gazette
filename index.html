@@ -6,13 +6,12 @@
 
 <!-- ── PRIMARY META ── -->
 <title>The Craig Gazette — Vol. I, No. 001 | Moffat County, Colorado</title>
-<!-- index_v4.html — Craig Gazette v4 — built May 2026 -->
 <meta name="description" content="The Craig Gazette — a weekly record of regional infrastructure, resource sovereignty, and public accountability in Moffat County, Colorado. Published by Ticonderoga Systems Holdings.">
 <meta name="keywords" content="Craig Colorado news, Moffat County, Yampa Valley, Craig Station, water rights, regional infrastructure, community journalism, Ticonderoga Systems">
 <meta name="author" content="Ticonderoga Systems Holdings">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1a1008">
-<link rel="canonical" href="https://ticonderoga.online">
+<link rel="canonical" href="https://gazette.ticonderoga.online">
 
 <!-- ── GEO ── -->
 <meta name="geo.region" content="US-CO">
@@ -25,19 +24,20 @@
 <meta property="og:site_name" content="The Craig Gazette">
 <meta property="og:title" content="The Craig Gazette — Forget It, Jake. It's Craig.">
 <meta property="og:description" content="A weekly technical record of regional infrastructure and resource sovereignty in the Yampa Valley. Blockchain-anchored. Immutable. Free.">
-<meta property="og:url" content="https://ticonderoga.online">
-<meta property="og:image" content="https://ticonderogasystems.xyz/og-image.jpg">
+<meta property="og:url" content="https://gazette.ticonderoga.online">
+<meta property="og:image" content="https://gazette.ticonderoga.online/og-image.svg">
+<meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Craig Gazette — Vol. I, No. 001">
+<meta property="og:image:alt" content="The Craig Gazette — Ticonderoga Systems Holdings">
 <meta property="og:locale" content="en_US">
 
 <!-- ── TWITTER / X ── -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Craig Gazette — Forget It, Jake. It's Craig.">
 <meta name="twitter:description" content="A weekly technical record of regional infrastructure and resource sovereignty in the Yampa Valley. Blockchain-anchored. Immutable. Free.">
-<meta name="twitter:image" content="https://ticonderogasystems.xyz/og-image.jpg">
-<meta name="twitter:image:alt" content="The Craig Gazette — Vol. I, No. 001">
+<meta name="twitter:image" content="https://gazette.ticonderoga.online/og-image.svg">
+<meta name="twitter:image:alt" content="The Craig Gazette — Ticonderoga Systems Holdings">
 
 <!-- ── FAVICON ── -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a1008'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23C9A94A'>Δ</text></svg>">
@@ -50,7 +50,7 @@
   "@type": "Newspaper",
   "name": "The Craig Gazette",
   "alternateName": "Craig Gazette",
-  "url": "https://ticonderoga.online",
+  "url": "https://gazette.ticonderoga.online",
   "description": "A weekly technical record of regional infrastructure and resource sovereignty in Moffat County, Colorado.",
   "inLanguage": "en-US",
   "isAccessibleForFree": true,
@@ -91,7 +91,6 @@
 
 <!-- ── PERFORMANCE: PRECONNECT ── -->
 <link rel="preconnect" href="https://formspree.io">
-<link rel="preconnect" href="https://ticonderoga.online">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -103,7 +102,6 @@
   --red:#8a2010;
   --green:#1a4a28;
 }
-html{scroll-behavior:smooth;}
 html,body{height:100%;overflow:hidden;background:#2a1505;}
 
 /* ── SCENE / PAGES ── */
@@ -285,6 +283,29 @@ font-family:'Times New Roman',Times,serif;
     <div class="jake-dek">The signals from Craig Station are being diverted. Ticon Recon v2.1 has mapped the digital sluice gates — and what it found should concern every water rights holder, business owner, and resident of Moffat County.</div>
   </div>
 
+  <!-- EDITORIAL VIDEO -->
+  <div style="background:#1a1008; padding:0; border-bottom:3px solid var(--ink); position:relative;">
+    <video
+      src="https://raw.githubusercontent.com/overthaught-lgtm/ticonderoga-gazette/main/IMG_3829.mov"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      style="width:100%; display:block; max-height:480px; object-fit:cover;"
+    ></video>
+    <div style="position:absolute; bottom:0; left:0; right:0; padding:10px 16px; background:linear-gradient(transparent, rgba(26,16,8,0.92)); display:flex; justify-content:space-between; align-items:flex-end;">
+      <div style="font-family:'Times New Roman',Times,serif; font-size:11px; color:#f5f0e8; letter-spacing:1px; line-height:1.4;">
+        <span style="color:var(--gold); font-weight:bold; text-transform:uppercase; letter-spacing:2px;">Editorial Video</span><br>
+        Chapman Motors electric sign — watered by sprinklers at 2am while it rains in Craig.<br>
+        <span style="color:#a89878; font-size:10px;">A building they purchased. The record does not forget.</span>
+      </div>
+      <div style="font-family:'Courier New',monospace; font-size:9px; color:#5a4a28; text-align:right; letter-spacing:1px;">
+        ISSUE 001<br>GAZETTE · TICON RECON
+      </div>
+    </div>
+  </div>
+
   <div class="srule">
     <div class="srule-bar"></div>
     <div class="srule-text">Regional Audit — Front Page</div>
@@ -409,7 +430,6 @@ font-family:'Times New Roman',Times,serif;
     </div>
 
     <form id="gazetteForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-      <!-- TODO v4: Replace YOUR_FORMSPREE_ID with live Formspree endpoint -->
 
       <div class="form-section-title">What Does Your Story Involve? (check all that apply)</div>
       <div class="form-grid">
@@ -548,7 +568,6 @@ font-family:'Times New Roman',Times,serif;
     <div style="padding:1.5rem;">
 
       <form id="p2Form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-      <!-- TODO v4: Replace YOUR_FORMSPREE_ID with live Formspree endpoint -->
 
         <div class="form-section-title">What Does Your Story Involve?</div>
         <div class="form-grid" style="margin-bottom:1rem;">
