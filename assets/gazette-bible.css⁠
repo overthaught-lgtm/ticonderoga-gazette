@@ -1,0 +1,67 @@
+/* Core Variables: Coarse aged stock & heavy ink */
+:root {
+    --bg-color: #fbf9f4; 
+    --ink-black: #111111;
+    --gonzo-red: #d62211;
+    --border-style: 1px solid var(--ink-black);
+    --double-border: 4px double var(--ink-black);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--ink-black);
+    font-family: "Times New Roman", Times, "Didot", "Georgia", serif;
+    padding: 40px;
+    line-height: 1.45;
+}
+
+/* Master Layout Framework */
+.broadsheet-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    border: var(--border-style);
+    padding: 24px;
+    background-color: var(--bg-color);
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+}
+
+.broadsheet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+@media (max-width: 950px) {
+   .broadsheet-grid { grid-template-columns: 1fr; }
+}
+
+.column {
+    padding-right: 5px;
+}
+.column:not(:last-child) {
+    border-right: var(--border-style);
+    padding-right: 24px;
+}
+
+@media (max-width: 950px) {
+   .column:not(:last-child) {
+        border-right: none;
+        border-bottom: var(--border-style);
+        padding-right: 0;
+        padding-bottom: 24px;
+    }
+}
+
+/* Typographic Standards */
+h1 { font-family: "Times New Roman", Times, serif; font-size: 64px; text-transform: uppercase; text-align: center; }
+h2 { font-family: "Times New Roman", Times, serif; font-size: 24px; text-transform: uppercase; border-bottom: var(--border-style); padding-bottom: 6px; text-align: center; }
+p { text-align: justify; text-indent: 18px; margin-bottom: 14px; }
+p.no-indent { text-indent: 0; }
+.story-content p:first-of-type::first-letter { font-size: 4.2em; float: left; line-height: 0.8; margin: 4px 8px 0 0; font-weight: bold; }
+
+/* Structural Blocks */
+.evidence-block { background-color: #faf8f5; border-top: var(--border-style); border-bottom: var(--border-style); font-family: monospace; padding: 12px; font-size: 11px; margin: 18px 0; }
+.broadsheet-ad { border: var(--border-style); padding: 16px; margin: 22px 0; text-align: center; }
+.broadsheet-ad.double-border { border: var(--double-border); }
+.classifieds-container { border: var(--double-border); padding: 14px; background: #fdfdfc; margin: 22px 0; }
