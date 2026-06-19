@@ -1,35 +1,258 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0a0a0a"/>
-  
-  <!-- Accent lines -->
-  <rect x="0" y="0" width="1200" height="4" fill="#00d4ff"/>
-  <rect x="0" y="626" width="1200" height="4" fill="#00d4ff"/>
-  
-  <!-- Center node / T mark -->
-  <circle cx="600" cy="240" r="40" fill="none" stroke="#00d4ff" stroke-width="3"/>
-  <circle cx="600" cy="240" r="12" fill="#00d4ff"/>
-  
-  <!-- Connected nodes (BEANS network visual) -->
-  <circle cx="520" cy="200" r="6" fill="#00d4ff" opacity="0.6"/>
-  <circle cx="680" cy="200" r="6" fill="#00d4ff" opacity="0.6"/>
-  <circle cx="520" cy="280" r="6" fill="#00d4ff" opacity="0.6"/>
-  <circle cx="680" cy="280" r="6" fill="#00d4ff" opacity="0.6"/>
-  
-  <!-- Connection lines -->
-  <line x1="520" y1="200" x2="600" y2="240" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
-  <line x1="680" y1="200" x2="600" y2="240" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
-  <line x1="520" y1="280" x2="600" y2="240" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
-  <line x1="680" y1="280" x2="600" y2="240" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
-  
-  <!-- Title -->
-  <text x="600" y="380" font-family="monospace" font-size="42" fill="#ffffff" text-anchor="middle" letter-spacing="4">TICONDEROGA SYSTEMS</text>
-  
-  <!-- Subtitle -->
-  <text x="600" y="430" font-family="monospace" font-size="20" fill="#00d4ff" text-anchor="middle" letter-spacing="8">GAZETTE</text>
-  
-  <!-- Tagline -->
-  <text x="600" y="520" font-family="monospace" font-size="14" fill="#666666" text-anchor="middle" letter-spacing="2">BEANS NETWORK • UNIVERSAL HAND OFF • UHO PROTOCOL</text>
-  
-  <!-- Bottom right marker -->
-  <text x="1140" y="590" font-family="monospace" font-size="10" fill="#333333" text-anchor="end">v1.0</text>
-</svg>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OG Image Render — Craig Gazette Issue 002</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: #050505;
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── LEFT PANEL ── */
+.left {
+  width: 58%;
+  background: #050505;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #1a1a1a;
+  position: relative;
+}
+
+.gold-top {
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, transparent);
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.masthead {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 68px;
+  line-height: 0.92;
+  letter-spacing: 2px;
+  color: #f0ece4;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #c9a84c;
+  line-height: 1.4;
+  max-width: 440px;
+  margin-bottom: 28px;
+  border-left: 2px solid #8a2010;
+  padding-left: 14px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.meta-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
+}
+.meta-item.live {
+  color: #4aaa68;
+}
+.meta-item.red {
+  color: #8a2010;
+}
+
+/* ── RIGHT PANEL ── */
+.right {
+  width: 42%;
+  background: #0a0808;
+  padding: 48px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.issue-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #8a2010;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hed {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 1.05;
+  color: #f0ece4;
+  margin-bottom: 16px;
+}
+
+.dek {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #8a8078;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.story-list {
+  border-top: 1px solid #1a1a1a;
+  padding-top: 16px;
+}
+.story-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #555;
+  padding: 5px 0;
+  border-bottom: 0.5px solid #1a1a1a;
+  display: flex;
+  gap: 8px;
+}
+.story-item span.dot { color: #c9a84c; }
+.story-item span.txt { color: #888; }
+
+.footer-row {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c9a84c;
+}
+.footer-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+/* ── LEDGER BOX ── */
+.ledger {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  border-left: 2px solid #c9a84c;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  line-height: 1.9;
+  color: #444;
+}
+.ledger .exposed { color: #8a2010; }
+.ledger .sealed  { color: #4aaa68; }
+.ledger .flagged { color: #c9a84c; }
+</style>
+</head>
+<body>
+
+<div class="left">
+  <div class="gold-top"></div>
+
+  <div>
+    <div class="badge">Δ Ticonderoga Shield · Active &nbsp;·&nbsp; gazette.ticonderoga.online</div>
+    <div class="masthead">The Craig<br>Gazette</div>
+    <div class="tagline">Water Finds Its Level — Three of seven trust beneficiaries unsealed. Ticon Recon was watching the door.</div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item">Vol. I · No. 002</div>
+    <div class="meta-item">June 1, 2026</div>
+    <div class="meta-item live">● Live Edition</div>
+    <div class="meta-item red">Moffat County, CO</div>
+  </div>
+</div>
+
+<div class="right">
+  <div>
+    <div class="issue-label">Chinatown Dispatch · Lead Story · Rigby Donovan</div>
+    <div class="hed">Water<br>Finds Its<br>Level.</div>
+    <div class="dek">The sealed trust reconvened — not at the Elks Lodge, but in a private room above a Craig storefront. Three beneficiaries are no longer sealed.</div>
+
+    <div class="ledger">
+      <div><span class="exposed">EMPIRE_VALLEY_HOLDINGS</span> [UNSEALED]</div>
+      <div><span class="exposed">CONTINENTAL_YAMPA_PTR</span> [UNSEALED]</div>
+      <div><span class="exposed">WESTGATE_MINERAL_TRUST</span> [UNSEALED]</div>
+      <div><span class="sealed">REMAINING_4_ENTITIES</span> &nbsp;&nbsp;&nbsp;[SEALED]</div>
+      <div><span class="flagged">VENUE_CHANGE</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FLAGGED]</div>
+    </div>
+
+    <div class="story-list">
+      <div class="story-item"><span class="dot">◆</span><span class="txt">The Elks Lodge Verdict — 3 of 7 unsealed</span></div>
+      <div class="story-item"><span class="dot">◆</span><span class="txt">The Assessor's Ledger — 6 days before filing</span></div>
+      <div class="story-item"><span class="dot">◆</span><span class="txt">City Hall Watch — public comment under threat</span></div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <div class="footer-left">Δ The Craig Gazette</div>
+    <div class="footer-right">All Records Unalterable</div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!--
+  ════════════════════════════════════════════════
+  INSTRUCTIONS — READ BEFORE UPLOADING
+  ════════════════════════════════════════════════
+
+  This file renders at exactly 1200 × 630px.
+
+  TO CREATE og-image.png:
+  1. Open this file in Chrome/Safari on desktop
+  2. Set browser zoom to 100%
+  3. Use any screenshot tool to capture exactly
+     1200px wide × 630px tall
+     (Chrome DevTools → Toggle Device Toolbar →
+      set custom size 1200×630, then screenshot)
+  4. Save as: og-image.png
+  5. Upload to: gazette.ticonderoga.online/og-image.png
+     (IONOS File Manager → gazette root folder)
+
+  The Issue-002 meta block already references:
+  https://gazette.ticonderoga.online/og-image.png
+
+  Facebook Debug Tool after upload:
+  https://developers.facebook.com/tools/debug
+  → Paste: https://gazette.ticonderoga.online/issue-002
+  → Hit "Scrape Again"
+
+  ════════════════════════════════════════════════
+-->
