@@ -1,258 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OG Image Render — Craig Gazette Issue 002</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="goldRule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#050505"/>
+      <stop offset="30%"  stop-color="#c9a84c"/>
+      <stop offset="70%"  stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="goldLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="bgLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#050505"/>
+      <stop offset="100%" stop-color="#0a0808"/>
+    </linearGradient>
+    <linearGradient id="bgRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#0a0808"/>
+      <stop offset="100%" stop-color="#0d0b08"/>
+    </linearGradient>
+  </defs>
 
-body {
-  width: 1200px;
-  height: 630px;
-  overflow: hidden;
-  background: #050505;
-  display: flex;
-  align-items: stretch;
-}
+  <!-- BACKGROUND -->
+  <rect width="1200" height="630" fill="#050505"/>
 
-/* ── LEFT PANEL ── */
-.left {
-  width: 58%;
-  background: #050505;
-  padding: 52px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid #1a1a1a;
-  position: relative;
-}
+  <!-- LEFT PANEL -->
+  <rect x="0" y="0" width="696" height="630" fill="url(#bgLeft)"/>
 
-.gold-top {
-  height: 3px;
-  background: linear-gradient(90deg, #c9a84c, transparent);
-  position: absolute;
-  top: 0; left: 0; right: 0;
-}
+  <!-- GOLD TOP RULE -->
+  <rect x="0" y="0" width="696" height="3" fill="url(#goldLeft)"/>
 
-.badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #c9a84c;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
+  <!-- RIGHT PANEL -->
+  <rect x="696" y="0" width="504" height="630" fill="url(#bgRight)"/>
 
-.masthead {
-  font-family: 'Cinzel', serif;
-  font-weight: 900;
-  font-size: 68px;
-  line-height: 0.92;
-  letter-spacing: 2px;
-  color: #f0ece4;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
+  <!-- PANEL DIVIDER -->
+  <line x1="696" y1="0" x2="696" y2="630" stroke="#1e1a14" stroke-width="1"/>
 
-.tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 20px;
-  color: #c9a84c;
-  line-height: 1.4;
-  max-width: 440px;
-  margin-bottom: 28px;
-  border-left: 2px solid #8a2010;
-  padding-left: 14px;
-}
+  <!-- ── LEFT: BADGE ── -->
+  <text x="52" y="72" font-family="Georgia, serif" font-size="11" fill="#c9a84c" letter-spacing="3">Δ TICONDEROGA SHIELD · ACTIVE · gazette.ticonderoga.online</text>
 
-.meta-row {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-.meta-item {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #444;
-  text-transform: uppercase;
-}
-.meta-item.live {
-  color: #4aaa68;
-}
-.meta-item.red {
-  color: #8a2010;
-}
+  <!-- ── LEFT: MASTHEAD ── -->
+  <text x="52" y="168" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="bold" fill="#f0ece4" letter-spacing="2">THE</text>
+  <text x="52" y="268" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="bold" fill="#f0ece4" letter-spacing="2">CRAIG</text>
+  <text x="52" y="368" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="bold" fill="#f0ece4" letter-spacing="2">GAZETTE</text>
 
-/* ── RIGHT PANEL ── */
-.right {
-  width: 42%;
-  background: #0a0808;
-  padding: 48px 38px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  <!-- GOLD RULE UNDER MASTHEAD -->
+  <rect x="52" y="384" width="580" height="2" fill="url(#goldRule)"/>
 
-.issue-label {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: #8a2010;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
+  <!-- ── LEFT: TAGLINE ── -->
+  <rect x="52" y="408" width="3" height="72" fill="#8a2010"/>
+  <text x="68" y="428" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#c9a84c">Water Finds Its Level — Three of seven trust</text>
+  <text x="68" y="452" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#c9a84c">beneficiaries unsealed. Ticon Recon was</text>
+  <text x="68" y="476" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#c9a84c">watching the door.</text>
 
-.hed {
-  font-family: 'Cinzel', serif;
-  font-weight: 900;
-  font-size: 38px;
-  line-height: 1.05;
-  color: #f0ece4;
-  margin-bottom: 16px;
-}
+  <!-- ── LEFT: FOOTER META ── -->
+  <text x="52" y="572" font-family="'Courier New', monospace" font-size="10" fill="#444" letter-spacing="2">VOL. I · NO. 002</text>
+  <text x="200" y="572" font-family="'Courier New', monospace" font-size="10" fill="#444" letter-spacing="2">JUNE 1, 2026</text>
+  <circle cx="360" cy="568" r="4" fill="#4aaa68"/>
+  <text x="370" y="572" font-family="'Courier New', monospace" font-size="10" fill="#4aaa68" letter-spacing="2">LIVE EDITION</text>
+  <text x="490" y="572" font-family="'Courier New', monospace" font-size="10" fill="#8a2010" letter-spacing="2">MOFFAT CO · CO</text>
 
-.dek {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 15px;
-  color: #8a8078;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  flex: 1;
-}
+  <!-- ── LEFT: ISSUE SEAL ── -->
+  <rect x="52" y="596" width="580" height="1" fill="#1a1a1a"/>
+  <text x="52" y="618" font-family="'Courier New', monospace" font-size="9" fill="#2a2a2a" letter-spacing="2">LEDGER: 0x82d19bf403c22e...TICON · ALL RECORDS UNALTERABLE</text>
 
-.story-list {
-  border-top: 1px solid #1a1a1a;
-  padding-top: 16px;
-}
-.story-item {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1px;
-  color: #555;
-  padding: 5px 0;
-  border-bottom: 0.5px solid #1a1a1a;
-  display: flex;
-  gap: 8px;
-}
-.story-item span.dot { color: #c9a84c; }
-.story-item span.txt { color: #888; }
+  <!-- ── RIGHT: KICKER ── -->
+  <text x="724" y="72" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#8a2010" letter-spacing="4">CHINATOWN DISPATCH · RIGBY DONOVAN</text>
 
-.footer-row {
-  margin-top: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-left {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #c9a84c;
-}
-.footer-right {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 1px;
-  color: #333;
-}
+  <!-- ── RIGHT: HEADLINE ── -->
+  <text x="724" y="136" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="bold" fill="#f0ece4">Water</text>
+  <text x="724" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="bold" fill="#f0ece4">Finds Its</text>
+  <text x="724" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="bold" fill="#f0ece4">Level.</text>
 
-/* ── LEDGER BOX ── */
-.ledger {
-  background: #0d0d0d;
-  border: 1px solid #1a1a1a;
-  border-left: 2px solid #c9a84c;
-  padding: 12px 14px;
-  margin-bottom: 18px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  line-height: 1.9;
-  color: #444;
-}
-.ledger .exposed { color: #8a2010; }
-.ledger .sealed  { color: #4aaa68; }
-.ledger .flagged { color: #c9a84c; }
-</style>
-</head>
-<body>
+  <!-- ── RIGHT: DECKS ── -->
+  <text x="724" y="304" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#6a5a48">The sealed trust reconvened — not at the Elks</text>
+  <text x="724" y="322" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#6a5a48">Lodge, but in a private room above a Craig</text>
+  <text x="724" y="340" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#6a5a48">storefront. Three beneficiaries no longer sealed.</text>
 
-<div class="left">
-  <div class="gold-top"></div>
+  <!-- ── RIGHT: LEDGER BOX ── -->
+  <rect x="724" y="362" width="444" height="136" fill="#0d0d0d" rx="0"/>
+  <rect x="724" y="362" width="2"   height="136" fill="#c9a84c"/>
+  <rect x="724" y="362" width="444" height="136" fill="none" stroke="#1a1a1a" stroke-width="1"/>
 
-  <div>
-    <div class="badge">Δ Ticonderoga Shield · Active &nbsp;·&nbsp; gazette.ticonderoga.online</div>
-    <div class="masthead">The Craig<br>Gazette</div>
-    <div class="tagline">Water Finds Its Level — Three of seven trust beneficiaries unsealed. Ticon Recon was watching the door.</div>
-  </div>
+  <text x="740" y="385" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">EMPIRE_VALLEY_HOLDINGS</text>
+  <text x="1010" y="385" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">[UNSEALED]</text>
 
-  <div class="meta-row">
-    <div class="meta-item">Vol. I · No. 002</div>
-    <div class="meta-item">June 1, 2026</div>
-    <div class="meta-item live">● Live Edition</div>
-    <div class="meta-item red">Moffat County, CO</div>
-  </div>
-</div>
+  <text x="740" y="408" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">CONTINENTAL_YAMPA_PTR</text>
+  <text x="1010" y="408" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">[UNSEALED]</text>
 
-<div class="right">
-  <div>
-    <div class="issue-label">Chinatown Dispatch · Lead Story · Rigby Donovan</div>
-    <div class="hed">Water<br>Finds Its<br>Level.</div>
-    <div class="dek">The sealed trust reconvened — not at the Elks Lodge, but in a private room above a Craig storefront. Three beneficiaries are no longer sealed.</div>
+  <text x="740" y="431" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">WESTGATE_MINERAL_TRUST</text>
+  <text x="1010" y="431" font-family="'Courier New', monospace" font-size="10" fill="#8a2010">[UNSEALED]</text>
 
-    <div class="ledger">
-      <div><span class="exposed">EMPIRE_VALLEY_HOLDINGS</span> [UNSEALED]</div>
-      <div><span class="exposed">CONTINENTAL_YAMPA_PTR</span> [UNSEALED]</div>
-      <div><span class="exposed">WESTGATE_MINERAL_TRUST</span> [UNSEALED]</div>
-      <div><span class="sealed">REMAINING_4_ENTITIES</span> &nbsp;&nbsp;&nbsp;[SEALED]</div>
-      <div><span class="flagged">VENUE_CHANGE</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FLAGGED]</div>
-    </div>
+  <text x="740" y="454" font-family="'Courier New', monospace" font-size="10" fill="#4aaa68">REMAINING_4_ENTITIES</text>
+  <text x="1010" y="454" font-family="'Courier New', monospace" font-size="10" fill="#4aaa68">[SEALED]</text>
 
-    <div class="story-list">
-      <div class="story-item"><span class="dot">◆</span><span class="txt">The Elks Lodge Verdict — 3 of 7 unsealed</span></div>
-      <div class="story-item"><span class="dot">◆</span><span class="txt">The Assessor's Ledger — 6 days before filing</span></div>
-      <div class="story-item"><span class="dot">◆</span><span class="txt">City Hall Watch — public comment under threat</span></div>
-    </div>
-  </div>
+  <text x="740" y="477" font-family="'Courier New', monospace" font-size="10" fill="#c9a84c">VENUE_CHANGE_TIMESTAMP</text>
+  <text x="1010" y="477" font-family="'Courier New', monospace" font-size="10" fill="#c9a84c">[FLAGGED]</text>
 
-  <div class="footer-row">
-    <div class="footer-left">Δ The Craig Gazette</div>
-    <div class="footer-right">All Records Unalterable</div>
-  </div>
-</div>
+  <!-- ── RIGHT: STORY LIST ── -->
+  <line x1="724" y1="514" x2="1168" y2="514" stroke="#1a1a1a" stroke-width="1"/>
 
-</body>
-</html>
+  <text x="724" y="535" font-family="'Courier New', monospace" font-size="9" fill="#555">◆</text>
+  <text x="740" y="535" font-family="'Courier New', monospace" font-size="9" fill="#888">The Elks Lodge Verdict — 3 of 7 unsealed</text>
 
-<!--
-  ════════════════════════════════════════════════
-  INSTRUCTIONS — READ BEFORE UPLOADING
-  ════════════════════════════════════════════════
+  <text x="724" y="553" font-family="'Courier New', monospace" font-size="9" fill="#555">◆</text>
+  <text x="740" y="553" font-family="'Courier New', monospace" font-size="9" fill="#888">The Assessor's Ledger — 6 days before filing</text>
 
-  This file renders at exactly 1200 × 630px.
+  <text x="724" y="571" font-family="'Courier New', monospace" font-size="9" fill="#555">◆</text>
+  <text x="740" y="571" font-family="'Courier New', monospace" font-size="9" fill="#888">City Hall Watch — public comment under threat</text>
 
-  TO CREATE og-image.png:
-  1. Open this file in Chrome/Safari on desktop
-  2. Set browser zoom to 100%
-  3. Use any screenshot tool to capture exactly
-     1200px wide × 630px tall
-     (Chrome DevTools → Toggle Device Toolbar →
-      set custom size 1200×630, then screenshot)
-  4. Save as: og-image.png
-  5. Upload to: gazette.ticonderoga.online/og-image.png
-     (IONOS File Manager → gazette root folder)
+  <!-- ── RIGHT: FOOTER ── -->
+  <line x1="724" y1="596" x2="1168" y2="596" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="724" y="618" font-family="Georgia, serif" font-size="11" fill="#c9a84c" letter-spacing="1">Δ The Craig Gazette</text>
+  <text x="1010" y="618" font-family="'Courier New', monospace" font-size="9" fill="#333" letter-spacing="1">All Records Unalterable</text>
 
-  The Issue-002 meta block already references:
-  https://gazette.ticonderoga.online/og-image.png
-
-  Facebook Debug Tool after upload:
-  https://developers.facebook.com/tools/debug
-  → Paste: https://gazette.ticonderoga.online/issue-002
-  → Hit "Scrape Again"
-
-  ════════════════════════════════════════════════
--->
+</svg>
