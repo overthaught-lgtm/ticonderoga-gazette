@@ -1,3 +1,37 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<style>
+  /* Force baseline visibility on mobile viewports */
+  html, body {
+    background-color: #f4f1ea !important; /* Forces the aged paper cream background */
+    color: #111111 !important;            /* Forces dark, readable text */
+    min-height: 100vh !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Prevent container collapse on smaller screens */
+  div, main, section, container, .wrapper {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Ensure the headline and Gazette header are visible */
+  h1, h2, h3, p, span, a {
+    color: inherit !important;
+  }
+
+  /* Overrides for forced dark-mode rendering bugs */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #f4f1ea !important;
+      color: #111111 !important;
+    }
+  }
+</style>
 <!-- ========================================== -->
 <!-- LATEST ISSUE: NO. 006 -->
 <!-- ========================================== -->
